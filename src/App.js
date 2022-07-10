@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import './components/dashboard/Bay';
+import Bay from './components/dashboard/Bay';
 
 function App() {
   return (
