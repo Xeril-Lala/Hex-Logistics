@@ -1,3 +1,4 @@
+import './Bay.css';
 
 function Bay() {
     return(
