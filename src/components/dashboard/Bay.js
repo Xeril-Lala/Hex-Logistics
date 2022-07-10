@@ -8,4 +8,4 @@ function Bay() {
     );
 }
 
-export default Bay
+export default Bay;
