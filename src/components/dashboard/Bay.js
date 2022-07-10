@@ -1,4 +1,3 @@
-import './components/dashboard/Bay.css';
 
 function Bay() {
     return(
