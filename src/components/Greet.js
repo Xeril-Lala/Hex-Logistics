@@ -7,6 +7,6 @@ export default Greet
 
 /* also can be done via arrow functions */
 
-/*const Greet = () => {
+/*export const Greet = () => {
     return <h1>Hello</h1>
 }*/
