@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './components/dashboard/Dashboard';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl dark:bg-slate-800 font-bold underline">
-        Hello world!!
-      </h1>
+
+
+      <Dashboard />
     </div>
   );
 }
