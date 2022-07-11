@@ -5,11 +5,11 @@ body {
 
 #App {
   font-family: sans-serif;
-  height: 100vh;
+  height: 90vh;
 }
 
 #page-wrap {
-  text-align: center;
+  text-align: left;
   overflow: auto;
   top: 45%;
   position: relative;
@@ -21,19 +21,19 @@ body {
   /* Our sidebar item styling */
   text-decoration: none;
   margin-bottom: 10px;
-  color: #d1d1d1;
+  color: #eaeaea;
   transition: color 0.2s;
 }
 
 .bm-item:hover {
-  color: white;
+  color: #3B7FB6;
 }
 
 .bm-burger-button {
   position: fixed;
   width: 36px;
   height: 30px;
-  right: 36px;
+  left: 36px;
   top: 36px;
 }
 
@@ -44,30 +44,30 @@ body {
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 34px;
+  width: 34px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: #eaeaea;
 }
 
 /* General sidebar styles */
 .bm-menu {
-  background: #000;
+  background: #1f1f1f;
   padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+  font-size: 1.2em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #373a47;
+  fill: #1f1f1f;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: #d4d4d4;
 }
 
 /* Styling of overlay */
