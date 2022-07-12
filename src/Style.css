@@ -3,18 +3,6 @@ body {
   margin: 0;
 }
 
-#App {
-  font-family: sans-serif;
-  height: 90vh;
-}
-
-#page-wrap {
-  text-align: left;
-  overflow: auto;
-  top: 45%;
-  position: relative;
-}
-
 .bm-item {
   display: inline-block;
 
