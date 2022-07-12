@@ -1,9 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/Dashboard';
-import Greet from'./components/Greet';
 import NavBar from "./components/NavBar";
-import ReactDOM from "react-dom";
 import "./Style.css";
 
 
