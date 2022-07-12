@@ -2,7 +2,7 @@ import React, { Fragment,useState,useEffect } from "react";
 import {Doughnut} from 'react-chartjs-2';
 
 const Bay = ({bay}) => {
-    const { id,name,people,time,status, status:{icon,text}, chart:{percentage,current,goal} } = bay;
+    const { name,people,time,status, status:{icon}, chart:{percentage,current,goal} } = bay;
 
     const plugins = [{
         beforeDraw: function(chart) {
@@ -16,10 +16,7 @@ const Bay = ({bay}) => {
              ctx.font = fontSize + "em sans-serif";
              ctx.textBaseline = "top";
              if (chart.data.datasets[0]){
-                var current = chart.data.datasets[0].data[0],
-                goal = (chart.data.datasets[0].data[1] + current),
-                // percentage = parseInt(current/goal*100),
-                text = `${percentage}`,
+                var text = `${percentage}`,
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
                 textY = height / 2.4;
                 ctx.fillText(text, textX, textY);
@@ -63,7 +60,7 @@ const Bay = ({bay}) => {
                 }
             ]        
         });
-    }, []);
+    }, [current,goal]);
 
     return ( 
         <Fragment>
