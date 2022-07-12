@@ -19,6 +19,7 @@ export async function getDashboardData() {
                     people: 3,
                     time: '10:00',
                     status: {
+                        id: 'LG',
                         text: 'Loading',
                         icon: 'arrow-circle-up'
                         },
@@ -34,6 +35,7 @@ export async function getDashboardData() {
                     people: 3,
                     time: '10:05',
                     status: {
+                        id: 'UG',
                         text: 'Unloading',
                         icon: 'arrow-circle-down'
                         },
@@ -49,6 +51,7 @@ export async function getDashboardData() {
                     people: 0,
                     time: '00:00',
                     status: {
+                        id: 'WG',
                         text: 'Waiting',
                         icon: 'clock'
                         },
@@ -64,6 +67,7 @@ export async function getDashboardData() {
                     people: 0,
                     time: '00:00',
                     status: {
+                        id: 'UE',
                         text: 'Unavailable',
                         icon: 'minus-circle'
                         },
@@ -79,6 +83,7 @@ export async function getDashboardData() {
                     people: 5,
                     time: '07:00',
                     status: {
+                        id: 'UG',
                         text: 'Unloading',
                         icon: 'arrow-circle-down'
                         },
@@ -94,6 +99,7 @@ export async function getDashboardData() {
                     people: 2,
                     time: '12:15',
                     status: {
+                        id: 'LG',
                         text: 'Loading',
                         icon: 'arrow-circle-up'
                         },

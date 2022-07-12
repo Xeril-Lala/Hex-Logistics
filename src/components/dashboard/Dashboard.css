@@ -1,43 +1,7 @@
-.content {
-    width: calc(100% - 40px);
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    justify-content: space-around;
-
-}
-/* .Bay {
-    margin-top: 10px;
-    border-radius: 5px;
-    background-color: white;
-    text-align: center;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-} */
-.chartz {
-    /* width: calc(100% - 60px); */
-    padding: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-}
-
 .chart{
-    max-height: 500px;
+    height: 450px;
 }
 
-.time-person {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-.time-content {
-    margin-left: 20px;
-}
-.person-content {
-    margin-right: 20px;
-}
 i {
     font-size: 14pt;
 }

@@ -22,6 +22,8 @@ ChartJS.register(
 )
 
 const Dashboard = () => {
+
+
     const [loadedGoal,setLoadedGoal] = useState({});
     const [unLoadedGoal,setUnloadedGoal] = useState({});
     const [bays, setBays] = useState([]);
@@ -45,6 +47,12 @@ const Dashboard = () => {
              var fontSize = (height / 90).toFixed(2);
              ctx.font = fontSize + "em sans-serif";
              ctx.textBaseline = "top";
+             if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                ctx.fillStyle = '#FFFFFF';
+             } else{
+                ctx.fillStyle = 'rgb(30 41 59)';
+             }
+
              if (chart.data.datasets[0]){
                 var current = chart.data.datasets[0].data[0],
                 goal = (chart.data.datasets[0].data[1] + current),
@@ -54,9 +62,9 @@ const Dashboard = () => {
                 textY = height / 2.9;
                 ctx.fillText(text, textX, textY);
 
-                fontSize = (height / 150).toFixed(2);
+                fontSize = (height / 120).toFixed(2);
                 ctx.font = fontSize + "em sans-serif";
-                var text2 = `${current}/${goal}`,
+                var text2 = `${current} / ${goal}`,
                 text2X = Math.round((width - ctx.measureText(text2).width) / 2),
                 text2Y = textY*1.7;
             }
@@ -120,40 +128,40 @@ const Dashboard = () => {
 
     return ( 
         <Fragment>
-            <div className="grid grid-cols-2 lg:grid-cols-6 gap-10 xl:mx-40 mx-4 my-5">
+            <div className=" grid grid-cols-2 lg:grid-cols-6 gap-10 xl:mx-40 mx-4 py-5">
                 <div>
-                    <div className="rounded shadow-lg py-2">
-                        <div className=" text-xl my-2">Loading</div>
-                        <p className="text-5xl mb-5">2</p>
+                    <div className="card">
+                        <div className=" text-xl mt-2">Loading</div>
+                        <p className="text-slate-700 font-bold text-5xl mb-5">12</p>
                     </div>
-                    <div className=" rounded shadow-lg py-2 mt-4">
+                    <div className="card mt-4">
                         <div className=" text-xl mt-2">Unloading</div>
-                        <p className="text-5xl mb-5">3</p>
+                        <p className="text-slate-700 font-bold text-5xl mb-5">3</p>
                     </div>
                 </div>
 
                 <div>
-                    <div className="rounded shadow-lg py-2">
-                        <div className=" text-xl my-2">Available</div>
-                        <p className="text-5xl mb-5">3</p>
+                    <div className="card">
+                        <div className=" text-xl mt-2">Available</div>
+                        <p className="text-slate-700 font-bold text-5xl mb-5">3</p>
                     </div>
-                    <div className=" rounded shadow-lg py-2 mt-4">
+                    <div className="card mt-4">
                         <div className=" text-xl mt-2">Unavailable</div>
-                        <p className="text-5xl mb-5">1</p>
+                        <p className="text-slate-700 font-bold text-5xl mb-5">1</p>
                     </div>
                 </div>
 
-                <div className="flex flex-col lg:col-span-2 place-items-center rounded shadow-lg py-4">
-                    <p className=" text-2xl">Loaded</p>
-                    <div className="chart w-44 mt-4">
+                <div className="card flex flex-col lg:col-span-2 place-items-center ">
+                    <p className=" text-2xl">Loaded progress</p>
+                    <div className="w-44 mt-4">
 
                     <Doughnut data={loadedChartData} options={options} plugins={plugins}/>
                     </div>
                 </div>
 
-                <div className="flex flex-col lg:col-span-2 place-items-center rounded shadow-lg py-4">
-                    <div className=" text-2xl">Unloaded</div>
-                    <div className="chart w-44 mt-4">
+                <div className="card flex flex-col lg:col-span-2 place-items-center ">
+                    <div className=" text-2xl">Unloaded progress</div>
+                    <div className=" w-44 mt-4">
 
                     <Doughnut data={unloadedChartData} options={options} plugins={plugins}/>
                     </div>

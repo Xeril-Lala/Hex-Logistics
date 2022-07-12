@@ -7,7 +7,30 @@ const WeeklyChart = () => {
     const [barChartData, setBarChartData] = useState({
         datasets: [],
     });
-    const [barChartOptions, setBarChartOptions] = useState({});
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                min: 0,
+                max: 20
+            },
+        },
+        plugins: {
+            legend:{
+                position: "top"
+            },
+            title: {
+                display: true,
+                text: "Daily loaded statistics",
+                color : '#000000',
+                font:{
+                    size: 14,
+                    family: 'sans-serif',
+                    weight: 'normal'                        }
+            }
+        }
+    }
 
     //bar chart setup
     useEffect(() => {
@@ -26,29 +49,11 @@ const WeeklyChart = () => {
                 }
             ]
         });
-        setBarChartOptions({
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    min: 0,
-                    max: 20
-                },
-            },
-            plugins: {
-                legend:{
-                    position: "top"
-                },
-                title: {
-                    display: true,
-                    text: "This week"
-                }
-            }
-        })
+
     }, []);
     return ( 
-        <div className="chart rounded shadow-lg xl:mx-40  px-48 py-10">
-            <Bar data={barChartData} options={barChartOptions} />
+        <div className="card mt-20 chart xl:mx-40  px-48">
+            <Bar data={barChartData} options={options} />
         </div>   
     );
 }

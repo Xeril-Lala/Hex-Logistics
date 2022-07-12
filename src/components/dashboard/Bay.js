@@ -2,7 +2,7 @@ import React, { Fragment,useState,useEffect } from "react";
 import {Doughnut} from 'react-chartjs-2';
 
 const Bay = ({bay}) => {
-    const { id,name,people,time, status:{icon,text}, chart:{percentage,current,goal} } = bay;
+    const { id,name,people,time,status, status:{icon,text}, chart:{percentage,current,goal} } = bay;
 
     const plugins = [{
         beforeDraw: function(chart) {
@@ -11,6 +11,8 @@ const Bay = ({bay}) => {
              ctx = chart.ctx;
              ctx.restore();
              var fontSize = (height / 90).toFixed(2);
+             if(window.matchMedia('(prefers-color-scheme: dark)').matches)
+             ctx.fillStyle = '#FFFFFF';
              ctx.font = fontSize + "em sans-serif";
              ctx.textBaseline = "top";
              if (chart.data.datasets[0]){
@@ -19,7 +21,7 @@ const Bay = ({bay}) => {
                 // percentage = parseInt(current/goal*100),
                 text = `${percentage}`,
                 textX = Math.round((width - ctx.measureText(text).width) / 2),
-                textY = height / 2.5;
+                textY = height / 2.4;
                 ctx.fillText(text, textX, textY);
             }
              ctx.save();
@@ -40,7 +42,14 @@ const Bay = ({bay}) => {
     //Loaded chart states
     const [loadedChartData, setLoadedChartData] = useState({
         datasets: [],
-    })
+    });
+
+    let statusIcon = status.id === 'LG' ? 'text-green-600'
+    : status.id === 'LG' ? 'text-green-600'
+    : status.id === 'UG' ? 'text-blue-600'
+    : status.id === 'WG' ? 'text-yellow-600'
+    : status.id === 'UE' ? 'text-black-600'
+    : status.id === 'text-black'
 
     //Loaded chart setup
     useEffect(() => {
@@ -58,19 +67,19 @@ const Bay = ({bay}) => {
 
     return ( 
         <Fragment>
-            <div className="rounded shadow-lg ">
+            <div className="card">
                 <h1 className="title">{name}</h1>
-                <div className="time-person">
-                    <div className="time-content">
-                        <i className={`uil uil-${icon}`}></i>
+                <div className="flex flex-row justify-between">
+                    <div className="ml-5">
+                        <i className={`uil uil-${icon} ${statusIcon}`}></i>
                         <label className="time"> {time} </label>
                     </div>
-                    <div className="person-content">
+                    <div className="mr-5">
                         <i className="uil uil-user-md"> </i>
                         <label className="person">{people}</label>
                     </div>
                 </div>
-                <div className="chartz w-9/12 2xl:w-44">
+                <div className="mx-auto w-9/12 2xl:w-44 p-[12px]">
                 <Doughnut data={loadedChartData} options={options} plugins={plugins}/>
 
                 </div>
