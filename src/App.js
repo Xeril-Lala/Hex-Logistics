@@ -1,7 +1,6 @@
 import './App.css';
-import Greet from'./components/Greet';
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import Dashboard from './components/dashboard/Dashboard';
 import NavBar from "./components/Navbar";
 import "./Style.css";
 
@@ -9,9 +8,10 @@ import "./Style.css";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"}/>
-      
+    <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+      <NavBar/>
+
+      <Dashboard />
     </div>
   );
 }
