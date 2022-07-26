@@ -1,14 +1,7 @@
 import './App.css';
-<<<<<<< Updated upstream
-import Greet from'./components/Greet';
-import React from "react";
-import ReactDOM from "react-dom";
-import NavBar from "./components/Navbar";
-=======
 import React from 'react';
 import Dashboard from './components/dashboard/Dashboard';
 import Form from './components/form/Form';
->>>>>>> Stashed changes
 import "./Style.css";
 import { useState } from "react";
 
@@ -21,11 +14,6 @@ const App = () => {
   ];
 
   return (
-<<<<<<< Updated upstream
-    <div className="App">
-      <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"}/>
-      
-=======
     <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
     <div className="flex">
       <div
@@ -78,7 +66,6 @@ const App = () => {
         </h1>
       </div>
     </div>
->>>>>>> Stashed changes
     </div>
   );
 };
