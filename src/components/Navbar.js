@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< Updated upstream
 import { push as Menu } from 'react-burger-menu'
 
 /*export const NavBar = () => {
@@ -34,3 +35,5 @@ export default props => {
     </Menu>
     );
 };
+=======
+>>>>>>> Stashed changes
