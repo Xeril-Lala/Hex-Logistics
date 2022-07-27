@@ -36,11 +36,11 @@ const Dashboard = () => {
         }
 
         requestBaysData();
-        const interval= setInterval(()=>{
-            requestBaysData();
-        },1000)
+        // const interval= setInterval(()=>{
+        //     requestBaysData();
+        // },1000)
 
-        return ()=>clearInterval(interval)
+        // return ()=>clearInterval(interval)
     },[]);
 
     const options = {
