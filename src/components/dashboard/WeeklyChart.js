@@ -27,7 +27,8 @@ const WeeklyChart = () => {
                 font:{
                     size: 14,
                     family: 'sans-serif',
-                    weight: 'normal'                        }
+                    weight: 'normal'                        
+                }
             }
         }
     }
@@ -49,7 +50,6 @@ const WeeklyChart = () => {
                 }
             ]
         });
-
     }, []);
     return ( 
         <div className="card mt-12 chart xl:mx-40  px-48">
