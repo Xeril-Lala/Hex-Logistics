@@ -54,11 +54,4 @@ const Form = () => {
     );
 }
 
-<<<<<<< Updated upstream
 export default Form;
-
-
-
-=======
-export default Form;
->>>>>>> Stashed changes
