@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
-      <Dashboard/>
+      <Sidebar/>
     </div>
   );
 }

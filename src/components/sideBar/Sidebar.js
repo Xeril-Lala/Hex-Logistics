@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import { useState } from "react";
 // pages imports
 import Form from "../form/Form";
+import Dashboard from '../dashboard/Dashboard';
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
@@ -58,8 +59,8 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-      <div className="h-full w-full">
-        <h1 className="text-2xl font-semibold ">
+      <div className="h-full">
+        <h1 className="">
           <Form/>  
         </h1>
       </div>
