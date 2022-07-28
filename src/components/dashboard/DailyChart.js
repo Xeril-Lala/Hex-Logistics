@@ -1,58 +1,80 @@
 import React, {useState, useEffect} from "react";
 import {Bar} from 'react-chartjs-2';
 
-const DailyChart = () => {
-        //Bar chart states
-        const [barChartData, setBarChartData] = useState({
-            datasets: [],
-        })
+const DailyChart = ({day,dailyData}) => {
+    const [isLoading, setIsLoading] = useState(true);
+    //Bar chart states
+    const [barChartData, setBarChartData] = useState({
+        datasets: [],
+    });
+    const timePeriods = dailyData?.map(data=> data?.timePeriod);
+    const loadedData = dailyData?.map(data=>data?.loaded);
+    const unloadedData = dailyData?.map(data=>data?.unloaded);
+    let allValues = [];
+    if (unloadedData !== undefined || loadedData !== undefined){
+         allValues = loadedData?.concat(unloadedData);
+    }
+    const maxValue = Math.max(...allValues) === null ? 0 : Math.max(...allValues);
 
-        const options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    min: 0,
-                    max: 12
-                },
-            },
-            plugins: {
-                legend:{
-                    position: "top"
-                },
-                title: {
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                min: 0,
+                max: maxValue+(10-maxValue%10),
+                ticks:{
                     display: true,
-                    text: "Daily loaded statistics",
-                    color : '#000000',
-                    font:{
-                        size: 14,
-                        family: 'sans-serif',
-                        weight: 'normal'                        }
+                    autoSkip: true,
+                    maxTicksLimit: 10
+                }
+            },
+        },
+        plugins: {
+            legend:{
+                position: "top"
+            },
+            title: {
+                display: true,
+                text: "Daily loaded statistics",
+                color : '#000000',
+                font:{
+                    size: 14,
+                    family: 'sans-serif',
+                    weight: 'normal'                        
                 }
             }
         }
-        
-        //bar chart setup
-        useEffect(() => {
-            setBarChartData({ 
-                labels: ["00:00-02:00","02:00-04:00","04:00-06:00","06:00-08:00","08:00-10:00","10:00-12:00","12:00-14:00","14:00-16:00","16:00-18:00","18:00-20:00","20:00-22:00","22:00-24:00",],
-                datasets : [
-                    {
-                        label: "Loaded",
-                        backgroundColor: "#ef5350",
-                        data:[3,2,3,2,1,2,3,3,2,3,2,1]
-                    },
-                    {
-                        label: "Unloaded",
-                        backgroundColor: "#42a5f5",
-                        data: [4,3,5,8,4,3,4,3,2,3,2,1]
-                    }
-                ]
-            });
-        }, []);
+    }
+    
+    //bar chart setup
+    useEffect(() => {
+        setIsLoading(true);
+        setBarChartData({ 
+            labels: timePeriods,
+            datasets : [
+                {
+                    label: "Loaded",
+                    backgroundColor: "#ef5350",
+                    data:loadedData
+                },
+                {
+                    label: "Unloaded",
+                    backgroundColor: "#42a5f5",
+                    data: unloadedData
+                }
+            ]
+        });
+        setIsLoading(false);
+    }, []);
+
+    if(isLoading){
+        return <div>LOADING</div>
+    }
 
     return ( 
         <div className="card chart xl:mx-40 px-48 py-10">
+            <p>{day}</p>
             <Bar data={barChartData} options={options} />
         </div>
      );
