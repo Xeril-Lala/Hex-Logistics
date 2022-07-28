@@ -34,6 +34,7 @@ const Dashboard = () => {
             setBays(result.details);
             setGeneralBays(result.general);
         }
+        
 
         requestBaysData();
         // const interval= setInterval(()=>{

@@ -3,7 +3,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 const Bay = ({bay}) => {
 
-    let { name,personal,status, status:{icon} } = bay;
+    let { name,personal,status, status:{icon}, guideNumber } = bay;
     let percentage = bay.times === null ? null  : bay.times.percentage;
     let timeLapsed = bay.times === null ? null  : bay.times.timeLapsed;
 
@@ -44,6 +44,7 @@ const Bay = ({bay}) => {
         });
     }, [percentage]);
 
+    if (status.id !== 'UE'){
         return ( 
             <Fragment>
                 <div className="card">
@@ -62,11 +63,38 @@ const Bay = ({bay}) => {
                     <Doughnut data={loadedChartData} options={options} />
                     <p className="percentageChart text-lg 2xl:text-[27px]">{percentage}%</p>
                     </div>
-
+                    <div className="information flex flex-row justify-between">
+                        <div className="guideNumber ml-5">{guideNumber}</div>
+                        <div className="guideNumber mr-5">{guideNumber}</div>
+                    </div>
+                    
                 </div>
                 
             </Fragment>
          );
+    } else {
+        return ( 
+            <Fragment>
+                <div className="card">
+                    <h1 className="title">{name}</h1>
+                    <div className="flex flex-col center-between mt-2">
+                        <label className="message-unavailable text-red-600 text-2xl">{status.text}</label>
+                        <div className="content-img">
+                            <div className="truck absolute ml-20 mt-6">
+                            <i className="uil uil-truck text-7xl"></i>
+                            </div>
+                            <div className="triangle absolute ml-32 z-10 mt-4">
+                            <i className="fa-solid fa-triangle-exclamation  text-red-600 text-5xl"></i>
+                            </div>
+                           
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </Fragment>
+        );
+    }
 }
  
 export default Bay;
