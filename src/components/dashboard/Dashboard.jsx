@@ -36,10 +36,7 @@ const Dashboard = () => {
     const [weeklyData, setWeeklyData] = useState({});
     const [bays, setBays] = useState([]);
     const [generalBays, setGeneralBays] = useState({});
-
-    //assign data
-    useEffect(()=>{
-        setIsLoading(true);
+    const loadData = () =>{
         Promise.all([getWeeklyData(),getDailyData(),getBaysData(),getBaysData()]).then((data)=>{
             setWeeklyData(data[0])
             setDailyData(data[1])
@@ -50,17 +47,15 @@ const Dashboard = () => {
         }).finally(()=>{
             setIsLoading(false);
         })
+    }
+
+    //assign data
+    useEffect(()=>{
+        setIsLoading(true);
+        loadData();
 
         const interval= setInterval(()=>{
-            Promise.all([getWeeklyData(),getDailyData(),getBaysData(),getBaysData()]).then((data)=>{
-                setWeeklyData(data[0])
-                setDailyData(data[1])
-                setBays(data[2].details)
-                setGeneralBays(data[3].general)
-                setIsLoading(false);
-            }).catch(error=>{
-                console.log(error);
-            })
+            loadData();
         },1000)
         return ()=>clearInterval(interval);  
     },[]);

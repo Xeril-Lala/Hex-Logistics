@@ -2,19 +2,16 @@ import React, {useState, useEffect} from "react";
 import {Bar} from 'react-chartjs-2';
 
 const WeeklyChart = ({week,weeklyData}) => {
-    const [isLoading, setIsLoading] = useState(true);
     //Bar chart states
     const [barChartData, setBarChartData] = useState({
         datasets: [],
     });
-    const weekDay = weeklyData?.map(data=>data.weekDay);
-    const loadedData = weeklyData?.map(data=>data.loaded);
-    const unloadedData = weeklyData?.map(data=>data.unloaded);
-    let allValues = [];
-    if (unloadedData !== undefined || loadedData !== undefined){
-         allValues = loadedData?.concat(unloadedData);
-    }
-    const maxValue = Math.max(...allValues) === null ? 0 : Math.max(...allValues);
+    const weekDay = weeklyData.map(data=>data.weekDay);
+    const loadedData = weeklyData.map(data=>data.loaded);
+    const unloadedData = weeklyData.map(data=>data.unloaded);
+    let allValues = loadedData.concat(unloadedData);
+    
+    const maxValue = Math.max(...allValues);
 
     const options = {
         responsive: true,
@@ -49,7 +46,6 @@ const WeeklyChart = ({week,weeklyData}) => {
 
     //bar chart setup
     useEffect(() => {
-        setIsLoading(true);
         setBarChartData({ 
             labels: weekDay,
             datasets : [
@@ -65,12 +61,7 @@ const WeeklyChart = ({week,weeklyData}) => {
                 }
             ]
         });
-        setIsLoading(false);
     }, []);
-
-    if(isLoading){
-        return <div>LOADING</div>
-    }
 
     return ( 
         <div className="card mt-12 chart xl:mx-40  px-48">
