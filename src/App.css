@@ -6,19 +6,3 @@
   @apply dark:bg-zinc-800  rounded-lg shadow-lg bg-white;
 }
 
-.percentageChart{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(0, 0, 0);
-}
-
-.percentageGoalChart{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: rgb(0, 0, 0);
-}
-/* py-2 al CARD */

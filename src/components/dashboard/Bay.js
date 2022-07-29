@@ -36,33 +36,14 @@ const Bay = ({bay}) => {
         });
     }, [percentage]);
 
-    if (status.id === 'UE'){
-        return ( 
-            <Fragment>
-                <div className="card">
-                    <p className="title">{name}</p>
-                    <div className="flex flex-col center-between mt-2">
-                        <label className="message-unavailable text-red-600 text-2xl">{text}</label>
-                        <div className="content-img">
-                            <div className="truck absolute ml-20 mt-6">
-                            <i className="uil uil-truck text-7xl"></i>
-                            </div>
-                            <div className="triangle absolute ml-32 z-10 mt-4">
-                            <i className="fa-solid fa-triangle-exclamation  text-red-600 text-5xl"></i>
-                            </div>              
-                        </div>
-                    </div>
-                </div>
-            </Fragment>
-         );
-    } else {
+    if (status.id !== 'UE'){
         return ( 
             <Fragment>
             <div className="card">
-                <h1 className="">{name}</h1>
+                <p className="">{name}</p>
                 <div className="flex flex-row justify-between">
                     <div className="ml-5 flex items-center ">
-                        <i className={`mr-1.5 uil uil-${icon} text-${color}-600`}></i>
+                        <i className={`mr-1.5 uil uil-${icon} ${color}`}></i>
                         <label className="text-lg"> {timeLapsed} </label>
                     </div>
                     <div className="mr-5 flex items-center">
@@ -81,6 +62,26 @@ const Bay = ({bay}) => {
             </div>
             </Fragment>
         );
+
+    } else {
+        return ( 
+            <Fragment>
+                <div className="card">
+                    <p className="title">{name}</p>
+                    <div className="flex flex-col center-between mt-2">
+                        <label className="message-unavailable text-red-600 text-2xl">{text}</label>
+                        <div className="content-img">
+                            <div className="truck absolute ml-20 mt-6">
+                            <i className="uil uil-truck text-7xl"></i>
+                            </div>
+                            <div className="triangle absolute ml-32 z-10 mt-4">
+                            <i className="fa-solid fa-triangle-exclamation  text-red-600 text-5xl"></i>
+                            </div>              
+                        </div>
+                    </div>
+                </div>
+            </Fragment>
+         );
     }
 }
  

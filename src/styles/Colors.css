@@ -1,0 +1,12 @@
+.green{
+    @apply text-green-600;
+}
+.blue{
+    @apply text-blue-600;
+}
+.red{
+    @apply text-blue-600;
+}
+.yellow{
+    @apply text-yellow-600;
+}

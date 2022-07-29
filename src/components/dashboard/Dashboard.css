@@ -2,7 +2,7 @@
     height: 450px;
 }
 
-i {
+ i {
     font-size: 27pt;
 }
 
@@ -11,3 +11,19 @@ i {
     margin-left: 5px;
     color: rgb(4, 211, 4);
 }
+
+.percentageChart{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+  }
+
+  .percentageGoalChart{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+  }

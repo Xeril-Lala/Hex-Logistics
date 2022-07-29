@@ -73,7 +73,7 @@ const DailyChart = ({day,dailyData}) => {
     }
 
     return ( 
-        <div className="card chart xl:mx-40 px-48 py-10">
+        <div className="card chart xl:mx-40 px-36 py-10">
             <p>{day}</p>
             <Bar data={barChartData} options={options} />
         </div>
