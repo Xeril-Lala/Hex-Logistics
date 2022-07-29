@@ -2,19 +2,15 @@ import React, {useState, useEffect} from "react";
 import {Bar} from 'react-chartjs-2';
 
 const DailyChart = ({day,dailyData}) => {
-    const [isLoading, setIsLoading] = useState(true);
     //Bar chart states
     const [barChartData, setBarChartData] = useState({
         datasets: [],
     });
-    const timePeriods = dailyData?.map(data=> data?.timePeriod);
-    const loadedData = dailyData?.map(data=>data?.loaded);
-    const unloadedData = dailyData?.map(data=>data?.unloaded);
-    let allValues = [];
-    if (unloadedData !== undefined || loadedData !== undefined){
-         allValues = loadedData?.concat(unloadedData);
-    }
-    const maxValue = Math.max(...allValues) === null ? 0 : Math.max(...allValues);
+    const timePeriods = dailyData.map(data=> data.timePeriod);
+    const loadedData = dailyData.map(data=>data.loaded);
+    const unloadedData = dailyData.map(data=>data.unloaded);
+    const allValues = loadedData.concat(unloadedData);
+    const maxValue = Math.max(...allValues);
 
     const options = {
         responsive: true,
@@ -49,7 +45,6 @@ const DailyChart = ({day,dailyData}) => {
     
     //bar chart setup
     useEffect(() => {
-        setIsLoading(true);
         setBarChartData({ 
             labels: timePeriods,
             datasets : [
@@ -65,12 +60,7 @@ const DailyChart = ({day,dailyData}) => {
                 }
             ]
         });
-        setIsLoading(false);
     }, []);
-
-    if(isLoading){
-        return <div>LOADING</div>
-    }
 
     return ( 
         <div className="card chart xl:mx-40 px-36 py-10">
