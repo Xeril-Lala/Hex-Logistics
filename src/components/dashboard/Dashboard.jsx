@@ -9,12 +9,13 @@ import WeeklyChart from "./WeeklyChart";
 import TotalBays from "./TotalBays";
 import DailyProgress from "./DailyProgress";
 //Styles
-import './Dashboard.css';
+import '../../styles/Dashboard.css';
 import '../../styles/Colors.css';
 //Api endpoints
 import { getBaysData } from "../../services/baysData";
 import { getDailyData } from "../../services/dailyData";
 import { getWeeklyData } from "../../services/weeklyData";
+import Spinner from "../Spinner";
 
 ChartJS.register(
     CategoryScale,
@@ -36,48 +37,39 @@ const Dashboard = () => {
     const [bays, setBays] = useState([]);
     const [generalBays, setGeneralBays] = useState({});
 
-    //get and assign data
+    //assign data
     useEffect(()=>{
-        const requestBaysData = async ()=>{
-            const result = await getBaysData();
-            console.log(result);
-            setBays(result.details);
-            setGeneralBays(result.general);
-        }
-
-        const requestDailyData = async ()=>{
-            const result = await getDailyData();
-            console.log(result);
-            setDailyData(result);
-            setIsLoading(false);
-        }
-
-        const requestWeeklyData = async ()=>{
-            const result = await getWeeklyData();
-            console.log(result);
-            setWeeklyData(result);
-        }
         setIsLoading(true);
-        requestBaysData();
-        requestDailyData();
-        requestWeeklyData();
-
-        ///QUITA LOS COMENTARIOS PARA CARGAR AUTOMATICAMENTE
+        Promise.all([getWeeklyData(),getDailyData(),getBaysData(),getBaysData()]).then((data)=>{
+            setWeeklyData(data[0])
+            setDailyData(data[1])
+            setBays(data[2].details)
+            setGeneralBays(data[3].general)
+        }).catch(error=>{
+            console.log(error);
+        }).finally(()=>{
+            setIsLoading(false);
+        })
 
         const interval= setInterval(()=>{
-            requestBaysData();
-            requestDailyData();
-            requestWeeklyData();
+            Promise.all([getWeeklyData(),getDailyData(),getBaysData(),getBaysData()]).then((data)=>{
+                setWeeklyData(data[0])
+                setDailyData(data[1])
+                setBays(data[2].details)
+                setGeneralBays(data[3].general)
+                setIsLoading(false);
+            }).catch(error=>{
+                console.log(error);
+            })
         },1000)
         return ()=>clearInterval(interval);  
     },[]);
-
 
     const loaded = dailyData?.general?.loaded;
     const unloaded = dailyData?.general?.unloaded;
 
     if(isLoading){
-        return <div>Loading</div>
+        return <Spinner />
     }
 
     return (
