@@ -1,6 +1,3 @@
-import './Form.css'
-
-
 const Form = () => {
 
 
@@ -9,7 +6,7 @@ const Form = () => {
         <div className = "bg-white h-screen  m-11 container w-full grid place-items-center">
             <h1 className = "text-xl font-md mt-12 p-12 text-left "> Shipping Form 
                 <div className = "grid grid-cols-2 gap-5  place-items-center text-gray-700 align-middle text-left">
-                    <div className = "border-b-2 border-blue-400 m-6">
+                    <div className = "border-b-1 border-blue-400 m-6">
                         <a>Internal Packing Number</a><br/>
                         <input type="text" placeholder = "#12345678"></input>
                     </div>
@@ -51,6 +48,7 @@ const Form = () => {
                     </div>
                 </div>  
                 </h1> 
+                
         </div>
     );
 }

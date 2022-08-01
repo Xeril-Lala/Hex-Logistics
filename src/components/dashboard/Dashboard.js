@@ -10,6 +10,7 @@ import DailyChart from "./DailyChart";
 import WeeklyChart from "./WeeklyChart";
 import { getBaysData } from "../../services/baysData";
 
+
 ChartJS.register(
     CategoryScale,
     LinearScale,
