@@ -6,11 +6,12 @@ import { useState } from "react";
 import Form from "../form/Form";
 import Dashboard from '../dashboard/Dashboard';
 import { SiHexo } from "react-icons/si"
-
+import { AiOutlineDashboard } from "react-icons/ai";
 import {
     FaTh,
     FaBars,
-    FaThList
+    FaThList,
+    FaWpforms
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
@@ -21,12 +22,12 @@ const Sidebar = ({children}) => {
       {
           path:"/",
           name:"Dashboard",
-          icon:<FaTh/>
+          icon:<AiOutlineDashboard/>
       },
       {
         path:"/Form",
         name:"Form",
-        icon:<FaThList/>
+        icon:<FaWpforms/>
       },
   ]
   return (
