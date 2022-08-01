@@ -60,7 +60,7 @@ const DailyChart = ({day,dailyData}) => {
                 }
             ]
         });
-    }, []);
+    }, [dailyData]);
 
     return ( 
         <div className="card chart xl:mx-40 px-36 py-10">

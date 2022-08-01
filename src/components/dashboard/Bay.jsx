@@ -23,7 +23,7 @@ const Bay = ({bay}) => {
     });
 
     //Loaded chart setup
-    useEffect(() => {
+    useEffect(() => { 
         setLoadedChartData({ 
             labels: ["Meta completada"],
             datasets : [
