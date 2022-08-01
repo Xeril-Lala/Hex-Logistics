@@ -15,7 +15,9 @@ import '../../styles/Colors.css';
 import { getBaysData } from "../../services/baysData";
 import { getDailyData } from "../../services/dailyData";
 import { getWeeklyData } from "../../services/weeklyData";
+
 import Spinner from "../Spinner";
+import { connectWebsocket } from "../../services/webSocket";
 
 ChartJS.register(
     CategoryScale,
@@ -32,36 +34,67 @@ ChartJS.register(
 
 const Dashboard = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const [connection, setConnection]= useState();
+
+    const [generalBays, setGeneralBays] = useState({});
+    const [bays, setBays] = useState([]);
     const [dailyData, setDailyData] = useState({});
     const [weeklyData, setWeeklyData] = useState({});
-    const [bays, setBays] = useState([]);
-    const [generalBays, setGeneralBays] = useState({});
-    const loadData = () =>{
-        Promise.all([getWeeklyData(),getDailyData(),getBaysData(),getBaysData()]).then((data)=>{
-            setWeeklyData(data[0])
-            setDailyData(data[1])
-            setBays(data[2].details)
-            setGeneralBays(data[3].general)
+
+
+    const loadBays = async () =>{
+        try{
+            const result = await getBaysData();
+            console.log(result.details);
+            setBays(result.details);
+        } catch(error) { console.log(error);}
+    }
+
+    const loadDashboard = () =>{
+        Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
+        .then(([bays,daily,weekly])=>{
+            setGeneralBays(bays.general)
+            setDailyData(daily);
+            setWeeklyData(weekly);
         }).catch(error=>{
             console.log(error);
-        }).finally(()=>{
-            setIsLoading(false);
         })
     }
 
     //assign data
     useEffect(()=>{
         setIsLoading(true);
-        loadData();
-
-        const interval= setInterval(()=>{
-            loadData();
-        },1000)
-        return ()=>clearInterval(interval);  
+        //Load all data
+        Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
+        .then(([bays,daily,weekly])=>{
+            setGeneralBays(bays.general);
+            setBays(bays.details);
+            setDailyData(daily);
+            setWeeklyData(weekly);
+        }).catch(error=>{
+            console.log(error);
+        }).finally(()=>{
+            setIsLoading(false);
+            //Connect to websocket
+            setConnection(connectWebsocket);
+        })
     },[]);
 
-    const loaded = dailyData?.general?.loaded;
-    const unloaded = dailyData?.general?.unloaded;
+    useEffect(() => {
+        if (connection) {
+            console.log("Loading connection...");
+            (async () => {
+              await connection.start();
+              console.log("Websocket Connected.");
+              connection.on("LoadBays",async () => {
+                loadBays();
+              });
+              connection.on("LoadDashboard",async () => {
+                loadDashboard();
+              });
+          })();
+        }
+      }, [connection])
 
     if(isLoading){
         return <Spinner />
@@ -74,8 +107,8 @@ const Dashboard = () => {
                     generalBays = {generalBays}
                 />
                 <DailyProgress
-                    loaded = {loaded}
-                    unloaded = {unloaded}
+                    loaded = {dailyData?.general?.loaded}
+                    unloaded = {dailyData?.general?.unloaded}
                 />
             </div>
             

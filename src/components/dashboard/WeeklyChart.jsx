@@ -61,7 +61,7 @@ const WeeklyChart = ({week,weeklyData}) => {
                 }
             ]
         });
-    }, []);
+    }, [weeklyData]);
 
     return ( 
         <div className="card mt-12 chart xl:mx-40  px-48">

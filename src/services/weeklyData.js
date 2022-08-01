@@ -1,5 +1,7 @@
+import { API_URL } from "./settings";
+
 export const getWeeklyData = () => {
-    var url = "http://hexlogapi-001-site1.gtempurl.com/api/weekly-stat";
+    var url = `${API_URL}/api/weekly-stat`;
     return fetch (url)
     .then((response)=>response.json())
     .catch((error)=> {console.log(error);})
