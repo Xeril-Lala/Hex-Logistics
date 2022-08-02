@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Bar} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 const DailyChart = ({day,dailyData}) => {
     //Bar chart states
@@ -51,12 +51,22 @@ const DailyChart = ({day,dailyData}) => {
                 {
                     label: "Loaded",
                     backgroundColor: "#ef5350",
-                    data:loadedData
+                    data:loadedData,
+                    fill: false,
+                    borderColor: '#ef5350',
+                    tension: 0.2,
+                    pointRadius: 4,
+                    pointHoverRadius: 4
                 },
                 {
                     label: "Unloaded",
                     backgroundColor: "#42a5f5",
-                    data: unloadedData
+                    data: unloadedData,
+                    fill: false,
+                    borderColor: '#42a5f5',
+                    tension: 0.2,
+                    pointRadius: 4,
+                    pointHoverRadius: 4
                 }
             ]
         });
@@ -65,7 +75,7 @@ const DailyChart = ({day,dailyData}) => {
     return ( 
         <div className="card chart xl:mx-40 px-36 py-10">
             <p>{day}</p>
-            <Bar data={barChartData} options={options} />
+            <Line data={barChartData} options={options} />
         </div>
      );
 }
