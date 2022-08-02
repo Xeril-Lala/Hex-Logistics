@@ -40,24 +40,24 @@ const Bay = ({bay}) => {
         return ( 
             <Fragment>
             <div className="card">
-                <p className="">{name}</p>
+                <p className="text-xl mt-2">{name}</p>
                 <div className="flex flex-row justify-between">
                     <div className="ml-5 flex items-center ">
-                        <i className={`mr-1.5 uil uil-${icon} ${color}`}></i>
-                        <label className="text-lg"> {timeLapsed} </label>
+                        <i className={`mr-1.5 uil uil-${icon} ${color} `}></i>
+                        <label className="text-xl"> {timeLapsed} </label>
                     </div>
                     <div className="mr-5 flex items-center">
                         <i className="mr-1.5 uil uil-user-md"> </i>
-                        <label className="text-lg">{personal}</label>
+                        <label className="text-xl">{personal}</label>
                     </div>
                 </div>
                 <div className="relative mx-auto w-9/12 2xl:w-44 p-[12px]">
                 <Doughnut data={loadedChartData} options={options} />
                 <p className="percentageChart text-lg 2xl:text-[27px]">{percentage}%</p>
                 </div>
-                <div className="information flex flex-row justify-between">
-                    <div className="guideNumber ml-5">{material}</div>
-                    <div className="guideNumber mr-5">{guideNumber}</div>
+                <div className="information flex flex-row justify-between mb-1">
+                    <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
+                    <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
                 </div>
             </div>
             </Fragment>
@@ -67,16 +67,15 @@ const Bay = ({bay}) => {
         return ( 
             <Fragment>
                 <div className="card">
-                    <p className="title">{name}</p>
-                    <div className="flex flex-col center-between mt-2">
+                    <p className="text-xl mt-2">{name}</p>
+                    <div className="flex flex-col justify-between mt-2">
                         <label className="message-unavailable text-red-600 text-2xl">{text}</label>
-                        <div className="content-img">
-                            <div className="truck absolute ml-20 mt-6">
-                            <i className="uil uil-truck text-7xl"></i>
-                            </div>
-                            <div className="triangle absolute ml-32 z-10 mt-4">
-                            <i className="fa-solid fa-triangle-exclamation  text-red-600 text-5xl"></i>
-                            </div>              
+                        <div className="content-img flex justify-center mt-5">
+                            <div className="relative">
+                            <i className="uil uil-truck block text-7xl"></i>
+                            <i className="fa-solid fa-triangle-exclamation absolute bottom-10 left-12 text-red-600 text-5xl"></i>
+
+                            </div>  
                         </div>
                     </div>
                 </div>

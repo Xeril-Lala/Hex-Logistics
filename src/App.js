@@ -8,7 +8,7 @@ import "./Style.css";
 
 function App() {
   return (
-    <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+    <div className="App dark:text-white pb-20">
       <NavBar/>
 
       <Dashboard />
