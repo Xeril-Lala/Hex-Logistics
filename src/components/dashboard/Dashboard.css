@@ -1,0 +1,13 @@
+.chart{
+    height: 450px;
+}
+
+i {
+    font-size: 27pt;
+}
+
+.fa-arrow-up{
+    font-size: 20pt;
+    margin-left: 5px;
+    color: rgb(4, 211, 4);
+}

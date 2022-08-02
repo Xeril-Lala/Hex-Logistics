@@ -12,6 +12,9 @@ module.exports = {
         "2sxl":"1.30rem"
       },
     },
+    container:{
+      center: true,
+    }
   },
   plugins: [],
 }
