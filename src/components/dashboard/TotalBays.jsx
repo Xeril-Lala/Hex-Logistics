@@ -4,7 +4,7 @@ const TotalBays = ({generalBays}) => {
 
     return ( 
         <Fragment>
-            <div className="">
+            <div>
                 <div className="card mt-4 flex">
                     <div className="icon bg-green-500 flex place-items-center justify-center rounded w-16">
                         <i className="fa-regular fa-circle-check text-white  text-3xl"></i>

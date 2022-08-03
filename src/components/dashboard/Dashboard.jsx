@@ -102,7 +102,7 @@ const Dashboard = () => {
 
     return (
         <Fragment>
-            <div className=" grid grid-cols-2 lg:grid-cols-5 gap-10 xl:mx-40 mx-4 py-5">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 xl:mx-40 mx-4 py-5">
                 <TotalBays 
                     generalBays = {generalBays}
                 />

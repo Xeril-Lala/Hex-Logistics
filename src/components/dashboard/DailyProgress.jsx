@@ -57,30 +57,28 @@ const DailyProgress = ({loaded,unloaded}) => {
         }, [unloaded]);
 
     return ( 
-        <Fragment>
-            <div className="grid grid-cols-2 gap-8 col-span-3">
-                <div className="card flex flex-col place-items-center ">
-                    <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Loaded progress</div>
-                    <div className="relative w-44 mt-6">
-                        <Doughnut data={loadedChartData} options={options} />
-                        <div className="percentageGoalChart">
-                            <p className="text-3xl">{loaded?.percentage}%</p>
-                            <p className="text-2sxl">{loaded?.current} / {loaded?.goal}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="card flex flex-col place-items-center ">
-                    <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Unloaded progress</div>
-                    <div className="relative w-44 mt-6">
-                        <Doughnut data={unloadedChartData} options={options} />
-                        <div className="percentageGoalChart">
-                            <p className="text-3xl">{unloaded?.percentage}%</p>
-                            <p className="text-2sxl">{unloaded?.current} / {unloaded?.goal}</p>
-                        </div>
+        <div className="grid grid-cols-2 gap-8 col-span-3">
+            <div className="card flex flex-col place-items-center ">
+                <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Loaded progress</div>
+                <div className="relative w-44 mt-6">
+                    <Doughnut data={loadedChartData} options={options} />
+                    <div className="percentageGoalChart">
+                        <p className="text-3xl">{loaded?.percentage}%</p>
+                        <p className="text-2sxl">{loaded?.current} / {loaded?.goal}</p>
                     </div>
                 </div>
             </div>
-        </Fragment>
+            <div className="card flex flex-col place-items-center ">
+                <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Unloaded progress</div>
+                <div className="relative w-44 mt-6">
+                    <Doughnut data={unloadedChartData} options={options} />
+                    <div className="percentageGoalChart">
+                        <p className="text-3xl">{unloaded?.percentage}%</p>
+                        <p className="text-2sxl">{unloaded?.current} / {unloaded?.goal}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
      );
 }
  
