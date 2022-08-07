@@ -25,7 +25,7 @@ const Bay = ({bay}) => {
     //Loaded chart setup
     useEffect(() => { 
         setLoadedChartData({ 
-            labels: ["Meta completada"],
+            labels: ["Goal"],
             datasets : [
                 {
                     label: "First",
@@ -74,8 +74,7 @@ const Bay = ({bay}) => {
                 }
             </div>
         );
-
 }
- 
+
 export default Bay;
 

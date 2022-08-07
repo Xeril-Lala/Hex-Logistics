@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import Bay from "./Bay";
 
 const ListBays = ({bays}) => {
