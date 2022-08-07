@@ -1,19 +1,44 @@
-import './Form.css'
+import { useState } from "react";
+import { updateBay } from "../../services/baysData";
+import "./Form.css";
 
 const Form = () => {
+    const initialState = {id:0, name:"", guideNumber: "", materialId: "", personal: 0}
+
+    const [bay, setBay] = useState(initialState);
 
 
+    const handleInputChange = (e) =>{
+        console.log(e.target.value);
+        setBay({...bay, [e.target.name]: e.target.value})
+    }
 
-    return (
-        <div className = "bg-white h-screen  m-11 container w-full grid place-items-center rounded-lg shadow-lg">
-           
-           <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
-	<div class="box col-span-2 text-left text-3xl">Material Details</div>
-	<div class="box text-left text-xl">
-        <label for="materialType" class="form-label inline-block mb-2 text-gray-700">Material Type</label>
-            <input
-            type="text"
-            class="
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+      try{
+        await updateBay(bay.id, bay)
+      }catch (error){
+        console.log(error);
+      }
+    }
+
+  return (
+    <div className="bg-white h-screen  m-11 container w-full grid place-items-center rounded-lg shadow-lg">
+      <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
+        <div class="box col-span-2 text-left text-3xl">Material Details</div>
+        <div class="box text-left text-xl">
+          <label
+            for="materialType"
+            class="form-label inline-block mb-2 text-gray-700"
+          >
+            Material Type
+          </label>
+          <input
+            type="number"
+            name="materialId"
+            value={bay.materialId}
+            onChange={handleInputChange}
+            className="
                     form-control
                     block
                     w-full
@@ -28,15 +53,19 @@ const Form = () => {
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
-                "
+                    focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none"
             id="materialType"
             placeholder="Steel"
-                />
-  </div>
-	<div class="box text-left text-xl">
-        <label for="datePurchase" class="form-label inline-block mb-2 text-gray-700 text-left">Date of Purchase</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="datePurchase"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Date of Purchase
+          </label>
+          <input
             type="date"
             class="
                     form-control
@@ -56,10 +85,16 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="datePurchase"
-                /></div>
-	<div class="box text-left text-xl">
-        <label for="deliveryLocation" class="form-label inline-block mb-2 text-gray-700 text-left">Delivery Address</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="deliveryLocation"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Delivery Address
+          </label>
+          <input
             type="text"
             class="
                     form-control
@@ -80,10 +115,16 @@ const Form = () => {
                 "
             id="deliveryLocation"
             placeholder="742 Evergreen Terrace in Springfield"
-                /></div>
-	<div class="box text-left text-xl">
-        <label for="estamatedArrival" class="form-label inline-block mb-2 text-gray-700 text-left">Estimated Date of Arrival</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="estamatedArrival"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Estimated Date of Arrival
+          </label>
+          <input
             type="date"
             class="
                     form-control
@@ -104,13 +145,19 @@ const Form = () => {
                 "
             id="estamatedArrival"
             placeholder="#123456"
-                /></div>
+          />
+        </div>
 
-<div class="box col-span-2 text-left text-3xl">Delivery Details</div>
+        <div class="box col-span-2 text-left text-3xl">Delivery Details</div>
 
-                <div class="box text-left text-xl">
-        <label for="vendorName" class="form-label inline-block mb-2 text-gray-700 text-left">Vendor</label>
-            <input
+        <div class="box text-left text-xl">
+          <label
+            for="vendorName"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Vendor
+          </label>
+          <input
             type="text"
             class="
                     form-control
@@ -131,10 +178,16 @@ const Form = () => {
                 "
             id="vendorName"
             placeholder="CISCO"
-                /></div>
-                <div class="box text-left text-xl">
-        <label for="trackNumber" class="form-label inline-block mb-2 text-gray-700 text-left">Tracking Number</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="trackNumber"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Tracking Number
+          </label>
+          <input
             type="number"
             class="
                     form-control
@@ -155,10 +208,16 @@ const Form = () => {
                 "
             id="trackNumber"
             placeholder="#123456"
-                /></div>
-                <div class="box text-left text-xl">
-        <label for="invoiceNumber" class="form-label inline-block mb-2 text-gray-700 text-left">Invoice Number</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="invoiceNumber"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Invoice Number
+          </label>
+          <input
             type="number"
             class="
                     form-control
@@ -179,10 +238,16 @@ const Form = () => {
                 "
             id="invoiceNumber"
             placeholder="#123456"
-                /></div>
-                <div class="box text-left text-xl">
-        <label for="packingNumber" class="form-label inline-block mb-2 text-gray-700 text-left">Packing Number</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="packingNumber"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            Packing Number
+          </label>
+          <input
             type="number"
             class="
                     form-control
@@ -203,10 +268,16 @@ const Form = () => {
                 "
             id="packingNumber"
             placeholder="#123456"
-                /></div>
-                <div class="box text-left text-xl">
-        <label for="onSiteNumber" class="form-label inline-block mb-2 text-gray-700 text-left">On Site Contact Number</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="onSiteNumber"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            On Site Contact Number
+          </label>
+          <input
             type="number"
             class="
                     form-control
@@ -227,10 +298,16 @@ const Form = () => {
                 "
             id="onSiteNumber"
             placeholder="#123456"
-                /></div>
-                <div class="box text-left text-xl">
-        <label for="formFiller" class="form-label inline-block mb-2 text-gray-700 text-left">On Duty Form Filler</label>
-            <input
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            for="formFiller"
+            class="form-label inline-block mb-2 text-gray-700 text-left"
+          >
+            On Duty Form Filler
+          </label>
+          <input
             type="text"
             class="
                     form-control
@@ -251,18 +328,18 @@ const Form = () => {
                 "
             id="formFiller"
             placeholder="Frank Mason"
-                /></div>
-
-            </div>
-
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
-                                py-2 px-4 border border-blue-500 hover:border-transparent rounded mb-10"
-                                >
-                                Upload
-                                </button>
-
+          />
         </div>
-    );
-}
+      </div>
+
+      <button
+        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
+                                py-2 px-4 border border-blue-500 hover:border-transparent rounded mb-10"
+      >
+        Upload
+      </button>
+    </div>
+  );
+};
 
 export default Form;

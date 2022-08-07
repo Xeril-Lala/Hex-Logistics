@@ -25,7 +25,7 @@ const Bay = ({bay}) => {
     //Loaded chart setup
     useEffect(() => { 
         setLoadedChartData({ 
-            labels: ["Meta completada"],
+            labels: ["Goal"],
             datasets : [
                 {
                     label: "First",
@@ -36,53 +36,45 @@ const Bay = ({bay}) => {
         });
     }, [percentage]);
 
-    if (status.id !== 'UE'){
         return ( 
-            <Fragment>
             <div className="card">
                 <p className="text-xl mt-2">{name}</p>
-                <div className="flex flex-row justify-between">
-                    <div className="ml-5 flex items-center ">
-                        <i className={`mr-1.5 uil uil-${icon} ${color} `}></i>
-                        <label className="text-xl"> {timeLapsed} </label>
-                    </div>
-                    <div className="mr-5 flex items-center">
-                        <i className="mr-1.5 uil uil-user-md"> </i>
-                        <label className="text-xl">{personal}</label>
-                    </div>
-                </div>
-                <div className="relative mx-auto w-9/12 2xl:w-44 p-[12px]">
-                <Doughnut data={loadedChartData} options={options} />
-                <p className="percentageChart text-lg 2xl:text-[27px]">{percentage}%</p>
-                </div>
-                <div className="information flex flex-row justify-between mb-1">
-                    <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
-                    <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
-                </div>
-            </div>
-            </Fragment>
-        );
-
-    } else {
-        return ( 
-            <Fragment>
-                <div className="card">
-                    <p className="text-xl mt-2">{name}</p>
-                    <div className="flex flex-col justify-between mt-2">
-                        <label className="message-unavailable text-red-600 text-2xl">{text}</label>
-                        <div className="content-img flex justify-center mt-5">
-                            <div className="relative">
-                            <i className="uil uil-truck block text-7xl"></i>
-                            <i className="fa-solid fa-triangle-exclamation absolute bottom-10 left-12 text-red-600 text-5xl"></i>
-
-                            </div>  
+                {
+                    status.id !== 'UE' ? (
+                        <Fragment>
+                        <div className="flex flex-row justify-between">
+                            <div className="ml-5 flex items-center ">
+                                <i className={`mr-1.5 uil uil-${icon} ${color} `}></i>
+                                <label className="text-xl"> {timeLapsed} </label>
+                            </div>
+                            <div className="mr-5 flex items-center">
+                                <i className="mr-1.5 uil uil-user-md"> </i>
+                                <label className="text-xl">{personal}</label>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </Fragment>
-         );
-    }
+                        <div className="relative mx-auto w-9/12 2xl:w-44 p-[12px]">
+                        <Doughnut data={loadedChartData} options={options} />
+                        <p className="percentageChart text-lg 2xl:text-[27px]">{percentage}%</p>
+                        </div>
+                        <div className="information flex flex-row justify-between mb-1">
+                            <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
+                            <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
+                        </div>
+                        </Fragment>
+                    ) : 
+                        <div className="flex flex-col justify-between mt-2">
+                            <label className="message-unavailable text-red-600 text-2xl">{text}</label>
+                            <div className="content-img flex justify-center mt-5">
+                                <div className="relative">
+                                <i className="uil uil-truck block text-7xl"></i>
+                                <i className="fa-solid fa-triangle-exclamation absolute bottom-10 left-12 text-red-600 text-5xl"></i>
+                                </div>  
+                            </div>
+                        </div>
+                }
+            </div>
+        );
 }
- 
+
 export default Bay;
 

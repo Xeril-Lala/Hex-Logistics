@@ -37,7 +37,7 @@ main{
     width: 100%;
     padding: 10px;
 }
-.sidebar{;
+.sidebar{
     transition: all 1.3s;
     width:300px;
 }

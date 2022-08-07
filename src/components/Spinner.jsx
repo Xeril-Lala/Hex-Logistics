@@ -12,7 +12,6 @@ const Spinner = () => {
             </div>
 
         </div>
-
      );
 }
  
