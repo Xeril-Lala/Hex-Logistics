@@ -5,7 +5,13 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+
+    extend: {
+      fontSize: {
+        "3xl":"2rem",
+        "2sxl":"1.30rem"
+      },
+    },
     container:{
       center: true,
     }
