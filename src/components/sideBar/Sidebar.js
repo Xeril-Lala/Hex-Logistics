@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 import {useUser} from '../../hooks/useUser'
 
 const Sidebar = ({children}) => {
-    const {isLogged, logout} = useUser()
+    const {isLogged, logout,isAdmin} = useUser()
 
     const handleClick = e =>{
         e.preventDefault()
@@ -32,6 +32,7 @@ const Sidebar = ({children}) => {
       }
   ]
   return (
+
       <div className="container-side h-full ">
         { isLogged &&
          <div style={{width: isOpen ? "200px" : "50px"}} className="text-white sidebar bg-gradient-to-b from-cyan-500 to-blue-500 mr-10">
@@ -41,11 +42,14 @@ const Sidebar = ({children}) => {
                      <FaBars onClick={toggle}/>
                  </div>
              </div>
-             
-            <a href='/' className="bg-transparent flex bottom-1  link duration-75" activeclassName="bg-sky-900">
-                <div className='icon'><AiOutlineDashboard/></div>
-                <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
-            </a>
+             {
+                isAdmin &&
+                    <a href='/' className="bg-transparent flex bottom-1  link duration-75" activeclassName="bg-sky-900">
+                        <div className='icon'><AiOutlineDashboard/></div>
+                        <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
+                    </a>
+             }
+
              {
                  menuItem.map((item, index)=>(
                      <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75" activeclassName="bg-sky-900">

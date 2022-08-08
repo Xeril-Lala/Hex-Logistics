@@ -1,26 +1,7 @@
-import { useState } from "react";
-import { updateBay } from "../../services/baysData";
 import "./Form.css";
 
 const Form = () => {
-    const initialState = {id:0, name:"", guideNumber: "", materialId: "", personal: 0}
 
-    const [bay, setBay] = useState(initialState);
-
-
-    const handleInputChange = (e) =>{
-        console.log(e.target.value);
-        setBay({...bay, [e.target.name]: e.target.value})
-    }
-
-    const handleSubmit = async (e) =>{
-      e.preventDefault();
-      try{
-        await updateBay(bay.id, bay)
-      }catch (error){
-        console.log(error);
-      }
-    }
 
   return (
     <div className="bg-white h-screen  m-11 container w-full grid place-items-center rounded-lg shadow-lg">
@@ -36,8 +17,6 @@ const Form = () => {
           <input
             type="number"
             name="materialId"
-            value={bay.materialId}
-            onChange={handleInputChange}
             className="
                     form-control
                     block
