@@ -23,14 +23,15 @@ const Form = () => {
         <div class="box col-span-2 text-left text-3xl">Material Details</div>
         <div class="box text-left text-xl">
           <label
-            for="materialType"
             class="form-label inline-block mb-2 text-gray-700"
           >
             Material Type
           </label>
           <input
             type="text"
+            list="materials"
             name="materialId"
+            onchange = { handleInput } 
             className="
                     form-control
                     block
@@ -50,10 +51,15 @@ const Form = () => {
             id="materialType"
             placeholder="Steel"
           />
+          <datalist id="materials">
+          <option value="Steel"/>
+          <option value="Plastic"/>
+          <option value="Cotton"/>
+          <option value="Wood"/>
+          </datalist>
         </div>
         <div class="box text-left text-xl">
           <label
-            for="datePurchase"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Date of Purchase
@@ -82,7 +88,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="deliveryLocation"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Delivery Address
@@ -112,7 +117,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="estamatedArrival"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Estimated Date of Arrival
@@ -175,7 +179,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="trackNumber"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Tracking Number
@@ -205,7 +208,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="invoiceNumber"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Invoice Number
@@ -235,7 +237,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="packingNumber"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Packing Number
@@ -265,7 +266,6 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="onSiteNumber"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             On Site Contact Number
@@ -295,10 +295,37 @@ const Form = () => {
         </div>
         <div class="box text-left text-xl">
           <label
-            for="formFiller"
             class="form-label inline-block mb-2 text-gray-700 text-left"
           >
             On Duty Form Filler
+          </label>
+          <input
+            type="text"
+            class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
+                "
+            id="formFiller"
+            placeholder="Frank Mason"
+          />
+        </div>
+        <div class="box text-left text-xl">
+          <label
+            class="form-label inline-block mb-2 text-gray-700 text-left">
+            Load or Unload
           </label>
           <input
             type="text"
@@ -328,6 +355,7 @@ const Form = () => {
       <button
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
                                 py-2 px-4 border border-blue-500 hover:border-transparent rounded mb-10"
+        onClick = { logValue }
       >
         Upload
       </button>
