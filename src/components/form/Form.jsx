@@ -4,7 +4,7 @@ const Form = () => {
 
 
   return (
-    <div className="bg-white h-screen  m-11 container w-full grid place-items-center rounded-lg shadow-lg">
+    <div className="bg-white h-screen m-11 container w-full grid place-items-center rounded-lg shadow-lg">
       <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
         <div class="box col-span-2 text-left text-3xl">Material Details</div>
         <div class="box text-left text-xl">
