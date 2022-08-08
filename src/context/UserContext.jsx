@@ -7,7 +7,11 @@ export const UserContextProvider = ({children}) => {
     const [jwt, setJWT] = useState(
         ()=> window.localStorage.getItem('jwt'))
 
-    return <Context.Provider value={{jwt, setJWT}}>
+    const [admin,setAdmin] = useState(
+        ()=> window.localStorage.getItem('admin')
+    )
+
+    return <Context.Provider value={{jwt, setJWT,admin,setAdmin}}>
         {children}
     </Context.Provider>
   }
