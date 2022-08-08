@@ -23,8 +23,7 @@ export const postFormData = async ({postForm}) => {
         },
         // body: JSON.stringify({username,password})
         body: JSON.stringify({
-            "materialType": String(postForm.materialType),
-            "password": String(password)
+            "materialType": String(postForm.materialType)
         })
     }).then(response=>{
         if(!response.ok) throw new Error('Error in response')
