@@ -38,13 +38,13 @@ const Sidebar = ({children}) => {
          <div style={{width: isOpen ? "200px" : "50px"}} className="text-white sidebar bg-gradient-to-b from-cyan-500 to-blue-500 mr-10">
              <div className="top_section mb-3 ">
                  <h1 style={{display: isOpen ? "block" : "none"}} className="logo"> <SiHexo/> </h1>
-                 <div style={{marginLeft: isOpen ? "80px" : "0px"}} className="bars text-white">
+                 <div style={{marginLeft: isOpen ? "80px" : "0px"}} className="bars text-white cursor-pointer">
                      <FaBars onClick={toggle}/>
                  </div>
              </div>
              {
                 isAdmin &&
-                    <a href='/' className="bg-transparent flex bottom-1  link duration-75" activeclassName="bg-sky-900">
+                    <a href='/' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900">
                         <div className='icon'><AiOutlineDashboard/></div>
                         <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
                     </a>
@@ -52,14 +52,14 @@ const Sidebar = ({children}) => {
 
              {
                  menuItem.map((item, index)=>(
-                     <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75" activeclassName="bg-sky-900">
+                     <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75 items-center" activeclassName="bg-sky-900">
                          <div className="icon">{item.icon}</div>
                          <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
                      </NavLink>
                  ))
              }
                       
-            <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75" activeclassName="bg-sky-900" onClick={handleClick}>
+            <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900" onClick={handleClick}>
                 <div className='icon'><BiLogOutCircle className=' text-gray-100'/></div>
                 <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
             </NavLink>

@@ -1,6 +1,20 @@
 import "./Form.css";
+import React, { useState } from "react";
+
+
+
 
 const Form = () => {
+
+  const [name, setName ] = useState ("");
+
+  const handleInput = event => {
+    setName(event.target.value);
+  };
+  
+  const logValue = () => {
+    console.log( name );
+  };
 
 
   return (
@@ -15,7 +29,7 @@ const Form = () => {
             Material Type
           </label>
           <input
-            type="number"
+            type="text"
             name="materialId"
             className="
                     form-control
