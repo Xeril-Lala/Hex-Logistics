@@ -6,19 +6,24 @@ import React, { useState } from "react";
 
 const Form = () => {
 
-  const [name, setName ] = useState ("");
+  const [Form, setForm]= useState ({
+    materialId:0,
+    statusId:"",
+    purchaseDate:"",
+    estimatedDate:Date.now(),
+  });
 
   const handleInput = event => {
-    setName(event.target.value);
+    setForm(event.target.value);
   };
   
   const logValue = () => {
-    console.log( name );
+    console.log( );
   };
 
-
+console.log(Date.new);
   return (
-    <div className="bg-white h-screen m-11 container w-full grid place-items-center rounded-lg shadow-lg">
+    <form className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
       <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
         <div class="box col-span-2 text-left text-3xl">Material Details</div>
         <div class="box text-left text-xl">
@@ -112,7 +117,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="deliveryLocation"
-            placeholder="742 Evergreen Terrace in Springfield"
+            placeholder="Destination Address"
           />
         </div>
         <div class="box text-left text-xl">
@@ -174,7 +179,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="vendorName"
-            placeholder="CISCO"
+            placeholder="Brand Name"
           />
         </div>
         <div class="box text-left text-xl">
@@ -203,7 +208,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="trackNumber"
-            placeholder="#123456"
+            placeholder="123456"
           />
         </div>
         <div class="box text-left text-xl">
@@ -232,7 +237,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="invoiceNumber"
-            placeholder="#123456"
+            placeholder="123456"
           />
         </div>
         <div class="box text-left text-xl">
@@ -261,7 +266,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="packingNumber"
-            placeholder="#123456"
+            placeholder="123456"
           />
         </div>
         <div class="box text-left text-xl">
@@ -290,7 +295,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="onSiteNumber"
-            placeholder="#123456"
+            placeholder="Site's Phone Number"
           />
         </div>
         <div class="box text-left text-xl">
@@ -319,7 +324,7 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="formFiller"
-            placeholder="Frank Mason"
+            placeholder="Uploader Name"
           />
         </div>
         <div class="box text-left text-xl">
@@ -347,20 +352,21 @@ const Form = () => {
                     focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
                 "
             id="formFiller"
-            placeholder="Frank Mason"
+            placeholder="Load / Unload"
           />
         </div>
       </div>
-
+      <div class="">
       <button
-        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white 
-                                py-2 px-4 border border-blue-500 hover:border-transparent rounded mb-10"
+        class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10"
         onClick = { logValue }
       >
         Upload
       </button>
-    </div>
+      </div>
+    </form>
   );
 };
 
 export default Form;
+

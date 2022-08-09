@@ -15,7 +15,7 @@ export const postForm = async () => {
 }
 
 export const postFormData = async ({postForm}) => {
-    var url = `${API_URL}/api/`;
+    var url = `${API_URL}/api/bays/queue`;
     return await fetch (url, {
         method: 'POST',
         headers: {
@@ -23,7 +23,16 @@ export const postFormData = async ({postForm}) => {
         },
         // body: JSON.stringify({username,password})
         body: JSON.stringify({
-            "materialType": String(postForm.materialType)
+            "materialId": Number(postForm.materialId),
+            "statusId": String(postForm.statusId),
+            "purchaseDate": Date(postForm.purchaseDate),
+            "estimatedDate": Date(postForm.estimatedDate),
+            "deliveryAddress": String(postForm.deliveryAddress),
+            "vendor": String(postForm.vendor),
+            "trackingNumber": Number(postForm.trackingNumber),
+            "invoiceNumber": String(postForm.invoiceNumber),
+            "contactNumber": String(postForm.contactNumber),
+            "formFiller": String(postForm.formFiller), 
         })
     }).then(response=>{
         if(!response.ok) throw new Error('Error in response')

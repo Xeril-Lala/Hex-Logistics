@@ -6,9 +6,7 @@ import { SiHexo } from "react-icons/si"
 import { BiLogOutCircle } from "react-icons/bi"
 import { AiOutlineDashboard } from "react-icons/ai";
 import {
-    FaTh,
     FaBars,
-    FaThList,
     FaWpforms
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
@@ -35,7 +33,7 @@ const Sidebar = ({children}) => {
 
       <div className="container-side h-full ">
         { isLogged &&
-         <div style={{width: isOpen ? "200px" : "50px"}} className="text-white sidebar bg-gradient-to-b from-cyan-500 to-blue-500 mr-10">
+         <div style={{width: isOpen ? "200px" : "50px"}} className="text-gray-100 sidebar bg-gradient-to-b from-cyan-500 to-blue-500 mr-10">
              <div className="top_section mb-3 ">
                  <h1 style={{display: isOpen ? "block" : "none"}} className="logo"> <SiHexo/> </h1>
                  <div style={{marginLeft: isOpen ? "80px" : "0px"}} className="bars text-white cursor-pointer">
@@ -60,7 +58,7 @@ const Sidebar = ({children}) => {
              }
                       
             <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900" onClick={handleClick}>
-                <div className='icon'><BiLogOutCircle className=' text-gray-100'/></div>
+                <div className='icon'><BiLogOutCircle/></div>
                 <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
             </NavLink>
          </div>
