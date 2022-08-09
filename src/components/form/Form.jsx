@@ -9,9 +9,9 @@ const Form = () => {
   const [formData, setForm]= useState ({
     materialId:0,
     statusId:"",
-    purchaseDate:"",
+    purchaseDate:Date.now(),
     estimatedDate:Date.now(),
-    deliveryAddress:Date.now(),
+    deliveryAddress:"",
     vendor:"",
     trackingNumber:0,
     invoiceNumber:"",
@@ -47,13 +47,14 @@ const Form = () => {
 
  
   
-  const logValue = () => {
-    console.log( );
-  };
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formData);
+      };
 
 console.log(Date.new);
   return (
-    <form className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
+    <div className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
       <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
         <div class="box col-span-2 text-left text-3xl">Material Details</div>
         
@@ -139,7 +140,7 @@ console.log(Date.new);
             Delivery Address
           </label>
           <input
-          required
+            required
             type="text"
             onchange = { handleInput } 
             value={ formData.deliveryAddress}
@@ -164,6 +165,8 @@ console.log(Date.new);
             placeholder="Destination Address"
           />
         </div>
+
+
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -171,6 +174,7 @@ console.log(Date.new);
             Estimated Date of Arrival
           </label>
           <input
+            required
             type="date"
             onchange = { handleInput } 
             value={ formData.estimatedDate}
@@ -206,6 +210,7 @@ console.log(Date.new);
             Vendor
           </label>
           <input
+          required
             type="text"
             onchange = { handleInput } 
             value={ formData.vendor}
@@ -230,6 +235,8 @@ console.log(Date.new);
             placeholder="Brand Name"
           />
         </div>
+
+
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -237,6 +244,7 @@ console.log(Date.new);
             Tracking Number
           </label>
           <input
+            required
             type="number"
             onchange = { handleInput } 
             value={ formData.trackingNumber }
@@ -261,6 +269,8 @@ console.log(Date.new);
             placeholder="123456"
           />
         </div>
+
+        
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -268,6 +278,7 @@ console.log(Date.new);
             Invoice Number
           </label>
           <input
+            required
             type="number"
             onchange = { handleInput } 
             value={ formData.invoiceNumber }
@@ -292,6 +303,8 @@ console.log(Date.new);
             placeholder="123456"
           />
         </div>
+
+
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -299,6 +312,7 @@ console.log(Date.new);
             Packing Number
           </label>
           <input
+            required
             type="number"
             onchange = { handleInput } 
             //value={ formData.materialId }
@@ -330,6 +344,7 @@ console.log(Date.new);
             On Site Contact Number
           </label>
           <input
+            required
             type="number"
             onchange = { handleInput } 
             value={ formData.contactNumber}
@@ -361,6 +376,8 @@ console.log(Date.new);
             On Duty Form Filler
           </label>
           <input
+            required
+            maxLength="12"
             type="text"
             onchange = { handleInput } 
             value={ formData.formFiller }
@@ -391,6 +408,7 @@ console.log(Date.new);
             Load or Unload
           </label>
           <input
+            required
             type="text"
             onchange = { handleInput } 
             //value={ formData.?????????????}
@@ -419,12 +437,12 @@ console.log(Date.new);
       <div class="">
       <button
         class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10"
-        onClick = { logValue }
+        onClick = { handleSubmit }
       >
         Upload
       </button>
       </div>
-    </form>
+    </div>
   );
 };
 
