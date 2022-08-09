@@ -19,30 +19,13 @@ const Form = () => {
     formFiller:"",
   });
 
-  const handleInput = event => {
-    const { value, 
-      materialId, 
-      statusId, 
-      purchaseDate, 
-      estimatedDate, 
-      deliveryAddress, 
-      vendor, 
-      trackingNumber, 
-      invoiceNumber, 
-      contactNumber, 
-      formFiller} = event.target;
+  const handleInput= (event) => {
+    setForm({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  
 
-      setForm({ formData,
-              [materialId]:value, 
-              [statusId]:value, 
-              [purchaseDate]:value, 
-              [estimatedDate]:value, 
-              [deliveryAddress]:value, 
-              [vendor]:value, 
-              [trackingNumber]:value, 
-              [invoiceNumber]:value,
-              [contactNumber]:value, 
-              [formFiller]:value,});
       } 
 
  
@@ -70,7 +53,7 @@ console.log(Date.new);
             type="text"
             list="materials"
             name="materialId"
-            onchange = { handleInput } 
+            onChange = { handleInput } 
             value={ formData.materialId}
             className="
                     form-control
@@ -109,7 +92,8 @@ console.log(Date.new);
           <input
             required
             type="date"
-            onchange = { handleInput } 
+            name="purchaseDate"
+            onChange = { handleInput } 
             value={ formData.purchaseDate }
             class="
                     form-control
@@ -142,7 +126,8 @@ console.log(Date.new);
           <input
             required
             type="text"
-            onchange = { handleInput } 
+            name="deliveryAddress"
+            onChange = { handleInput } 
             value={ formData.deliveryAddress}
             class="
                     form-control
@@ -176,7 +161,8 @@ console.log(Date.new);
           <input
             required
             type="date"
-            onchange = { handleInput } 
+            name="estimatedDate"
+            onChange = { handleInput } 
             value={ formData.estimatedDate}
             class="
                     form-control
@@ -212,7 +198,8 @@ console.log(Date.new);
           <input
           required
             type="text"
-            onchange = { handleInput } 
+            name="vendor"
+            onChange = { handleInput } 
             value={ formData.vendor}
             class="
                     form-control
@@ -246,7 +233,8 @@ console.log(Date.new);
           <input
             required
             type="number"
-            onchange = { handleInput } 
+            name="trackingNumber"
+            onChange = { handleInput } 
             value={ formData.trackingNumber }
             class="
                     form-control
@@ -280,7 +268,8 @@ console.log(Date.new);
           <input
             required
             type="number"
-            onchange = { handleInput } 
+            name="invoiceNumber"
+            onChange = { handleInput } 
             value={ formData.invoiceNumber }
             class="
                     form-control
@@ -314,7 +303,8 @@ console.log(Date.new);
           <input
             required
             type="number"
-            onchange = { handleInput } 
+            name="packingNumber"
+            onChange = { handleInput } 
             //value={ formData.materialId }
             class="
                     form-control
@@ -346,7 +336,8 @@ console.log(Date.new);
           <input
             required
             type="number"
-            onchange = { handleInput } 
+            name="contactNumber"
+            onChange = { handleInput } 
             value={ formData.contactNumber}
             class="
                     form-control
@@ -379,7 +370,8 @@ console.log(Date.new);
             required
             maxLength="12"
             type="text"
-            onchange = { handleInput } 
+            name="formFiller"
+            onChange = { handleInput } 
             value={ formData.formFiller }
             class="
                     form-control
@@ -410,7 +402,8 @@ console.log(Date.new);
           <input
             required
             type="text"
-            onchange = { handleInput } 
+            name="loadUnload"
+            onChange = { handleInput } 
             //value={ formData.?????????????}
             class="
                     form-control
