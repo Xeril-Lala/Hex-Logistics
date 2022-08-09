@@ -6,16 +6,46 @@ import React, { useState } from "react";
 
 const Form = () => {
 
-  const [Form, setForm]= useState ({
+  const [formData, setForm]= useState ({
     materialId:0,
     statusId:"",
     purchaseDate:"",
     estimatedDate:Date.now(),
+    deliveryAddress:Date.now(),
+    vendor:"",
+    trackingNumber:0,
+    invoiceNumber:"",
+    contactNumber:"",
+    formFiller:"",
   });
 
   const handleInput = event => {
-    setForm(event.target.value);
-  };
+    const { value, 
+      materialId, 
+      statusId, 
+      purchaseDate, 
+      estimatedDate, 
+      deliveryAddress, 
+      vendor, 
+      trackingNumber, 
+      invoiceNumber, 
+      contactNumber, 
+      formFiller} = event.target;
+
+      setForm({ formData,
+              [materialId]:value, 
+              [statusId]:value, 
+              [purchaseDate]:value, 
+              [estimatedDate]:value, 
+              [deliveryAddress]:value, 
+              [vendor]:value, 
+              [trackingNumber]:value, 
+              [invoiceNumber]:value,
+              [contactNumber]:value, 
+              [formFiller]:value,});
+      } 
+
+ 
   
   const logValue = () => {
     console.log( );
@@ -26,6 +56,8 @@ console.log(Date.new);
     <form className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
       <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
         <div class="box col-span-2 text-left text-3xl">Material Details</div>
+        
+        
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700"
@@ -33,10 +65,12 @@ console.log(Date.new);
             Material Type
           </label>
           <input
+            required
             type="text"
             list="materials"
             name="materialId"
             onchange = { handleInput } 
+            value={ formData.materialId}
             className="
                     form-control
                     block
@@ -63,6 +97,8 @@ console.log(Date.new);
           <option value="Wood"/>
           </datalist>
         </div>
+
+
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -70,7 +106,10 @@ console.log(Date.new);
             Date of Purchase
           </label>
           <input
+            required
             type="date"
+            onchange = { handleInput } 
+            value={ formData.purchaseDate }
             class="
                     form-control
                     block
@@ -91,6 +130,8 @@ console.log(Date.new);
             id="datePurchase"
           />
         </div>
+        
+        
         <div class="box text-left text-xl">
           <label
             class="form-label inline-block mb-2 text-gray-700 text-left"
@@ -98,7 +139,10 @@ console.log(Date.new);
             Delivery Address
           </label>
           <input
+          required
             type="text"
+            onchange = { handleInput } 
+            value={ formData.deliveryAddress}
             class="
                     form-control
                     block
@@ -128,6 +172,8 @@ console.log(Date.new);
           </label>
           <input
             type="date"
+            onchange = { handleInput } 
+            value={ formData.estimatedDate}
             class="
                     form-control
                     block
@@ -161,6 +207,8 @@ console.log(Date.new);
           </label>
           <input
             type="text"
+            onchange = { handleInput } 
+            value={ formData.vendor}
             class="
                     form-control
                     block
@@ -190,6 +238,8 @@ console.log(Date.new);
           </label>
           <input
             type="number"
+            onchange = { handleInput } 
+            value={ formData.trackingNumber }
             class="
                     form-control
                     block
@@ -219,6 +269,8 @@ console.log(Date.new);
           </label>
           <input
             type="number"
+            onchange = { handleInput } 
+            value={ formData.invoiceNumber }
             class="
                     form-control
                     block
@@ -248,6 +300,8 @@ console.log(Date.new);
           </label>
           <input
             type="number"
+            onchange = { handleInput } 
+            //value={ formData.materialId }
             class="
                     form-control
                     block
@@ -277,6 +331,8 @@ console.log(Date.new);
           </label>
           <input
             type="number"
+            onchange = { handleInput } 
+            value={ formData.contactNumber}
             class="
                     form-control
                     block
@@ -306,6 +362,8 @@ console.log(Date.new);
           </label>
           <input
             type="text"
+            onchange = { handleInput } 
+            value={ formData.formFiller }
             class="
                     form-control
                     block
@@ -334,6 +392,8 @@ console.log(Date.new);
           </label>
           <input
             type="text"
+            onchange = { handleInput } 
+            //value={ formData.?????????????}
             class="
                     form-control
                     block
