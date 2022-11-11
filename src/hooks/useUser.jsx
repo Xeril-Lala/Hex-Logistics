@@ -6,6 +6,7 @@ import loginService from '../services/login'
 export const useUser = () => {
     const {jwt, setJWT,admin,setAdmin} = useContext(Context)
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const login = useCallback(({username, password})=>{
         setLoading(true)
@@ -17,7 +18,6 @@ export const useUser = () => {
             const adminRol = JSON.parse(window.atob(base64))["adminRol"];
             window.localStorage.setItem('jwt', jwt)
             setLoading(false)
-            console.log(jwt)
             if(adminRol !== undefined){
                 window.localStorage.setItem('admin',JSON.parse(window.atob(base64))["adminRol"])
                 setAdmin(adminRol)
@@ -28,6 +28,7 @@ export const useUser = () => {
             window.localStorage.removeItem('jwt', jwt)
             setLoading(false)
             console.log(error)
+            setError(true);
         })
     },[setJWT,setAdmin])
 
@@ -44,6 +45,7 @@ export const useUser = () => {
         isLogged: Boolean(jwt),
         isAdmin: Boolean(admin),
         isLoginLoading: loading,
+        loginError: error,
         login,
         logout
     }

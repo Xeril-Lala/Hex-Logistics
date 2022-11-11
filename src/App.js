@@ -19,43 +19,44 @@ const App = () => {
     { title: "Setting", src: "Setting" },
   ];
 
+
   return (
     <UserContextProvider>
-      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
-        <Sidebar>
-          <Routes>
-            <Route
-              path ='/dashboard'
-              element= {
-                <RequireAuth>
-                  <RequireAdmin>
-                    <Dashboard />
-                  </RequireAdmin>
-                </RequireAuth>
-              }/>
-              <Route 
-              path="/" 
-              element={
-                <RequireAuth>
-                  <RequireAdmin>
-                    <Dashboard />
-                  </RequireAdmin>
-                </RequireAuth>
-              } />
-              <Route 
-              path="/Form" 
-              element={
-                <RequireAuth>
-                  <Form />
-                </RequireAuth>
-              }/>
-            <Route path="/login" element={<Login />}/>
-          </Routes>
-        </Sidebar>
+    <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+      <Sidebar>
+        <Routes>
+          <Route
+            path ='/dashboard'
+            element= {
+              <RequireAuth>
+                <RequireAdmin>
+                  <Dashboard />
+                </RequireAdmin>
+              </RequireAuth>
+            }/>
+            <Route 
+            path="/" 
+            element={
+              <RequireAuth>
+                <RequireAdmin>
+                  <Dashboard />
+                </RequireAdmin>
+              </RequireAuth>
+            } />
+            <Route 
+            path="/Form" 
+            element={
+              <RequireAuth>
+                <Form />
+              </RequireAuth>
+            }/>
+          <Route path="/login" element={<Login />}/>
+        </Routes>
+      </Sidebar>
 
 
-      </div>
-      </UserContextProvider>
+    </div>
+    </UserContextProvider>
 
   );
 }

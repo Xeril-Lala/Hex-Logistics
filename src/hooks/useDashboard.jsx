@@ -26,10 +26,8 @@ export const useDashboard = () => {
             console.log(error);
         })
     }
-        //assign data
         useEffect(()=>{
             setIsLoading(true);
-            //Load all data
             Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
             .then(([bays,daily,weekly])=>{
                 setGeneralBays(bays.general);
@@ -40,7 +38,6 @@ export const useDashboard = () => {
                 console.log(error);
             }).finally(()=>{
                 setIsLoading(false);
-                //Connect to websocket
                 setConnection(connectWebsocket);
             })
         },[]);
