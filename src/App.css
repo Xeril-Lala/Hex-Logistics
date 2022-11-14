@@ -61,7 +61,7 @@ main{
 
 }
 .link:hover{
-    background:lightskyblue;
+    background:rgb(201, 201, 201);
     transition: all 0.5s;
 }
 .active{

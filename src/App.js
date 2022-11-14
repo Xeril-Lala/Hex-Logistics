@@ -21,11 +21,43 @@ const App = () => {
         
 
         <Sidebar>
+<<<<<<< Updated upstream
           <Routes>
             <Route path="/" element={<Dashboard />}/>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/Form" element={<Form />}/>
           </Routes>
+=======
+          {/* <Routes>
+            <Route
+              path ='/dashboard'
+              element= {
+                <RequireAuth>
+                  <RequireAdmin>
+                    <Dashboard />
+                  </RequireAdmin>
+                </RequireAuth>
+              }/>
+              <Route 
+              path="/" 
+              element={
+                <RequireAuth>
+                  <RequireAdmin>
+                    <Dashboard />
+                  </RequireAdmin>
+                </RequireAuth>
+              } />
+              <Route 
+              path="/Form" 
+              element={
+                <RequireAuth>
+                  <Form />
+                </RequireAuth>
+              }/>
+            <Route path="/login" element={<Login />}/>
+          </Routes> */}
+          <Form/>
+>>>>>>> Stashed changes
         </Sidebar>
 
 
