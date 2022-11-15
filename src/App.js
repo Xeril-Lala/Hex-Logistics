@@ -23,6 +23,7 @@ const App = () => {
     <UserContextProvider>
       <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
         <Sidebar>
+          {/*
           <Routes>
             <Route
               path ='/dashboard'
@@ -50,7 +51,8 @@ const App = () => {
                 </RequireAuth>
               }/>
             <Route path="/login" element={<Login />}/>
-          </Routes>
+          </Routes>*/}
+          <Form/>
         </Sidebar>
 
 

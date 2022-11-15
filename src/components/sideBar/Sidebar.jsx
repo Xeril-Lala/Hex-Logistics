@@ -13,8 +13,8 @@ import { NavLink } from 'react-router-dom';
 import {useUser} from '../../hooks/useUser'
 
 const Sidebar = ({children}) => {
-    const {isLogged, logout,isAdmin} = useUser()
-
+    const {/*isLogged*/logout,isAdmin} = useUser()
+    const isLogged = 'True';
     const handleClick = e =>{
         e.preventDefault()
         logout()
