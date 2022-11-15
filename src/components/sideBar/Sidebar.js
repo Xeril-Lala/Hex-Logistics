@@ -15,8 +15,14 @@ import { NavLink } from 'react-router-dom';
 import {useUser} from '../../hooks/useUser'
 
 const Sidebar = ({children}) => {
+<<<<<<< Updated upstream:src/components/sideBar/Sidebar.js
     const {isLogged, logout} = useUser()
+=======
+    // const {isLogged, logout,isAdmin} = useUser()
+        const { logout,isAdmin} = useUser()
+>>>>>>> Stashed changes:src/components/sideBar/Sidebar.jsx
 
+const isLogged = true;
     const handleClick = e =>{
         e.preventDefault()
         logout()

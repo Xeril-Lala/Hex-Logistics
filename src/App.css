@@ -51,21 +51,21 @@ main{
 }
 .bars{
     display: flex;
-    font-size: 25px;
+    font-size: 29px;
     margin-left: 50px;
 }
 .link{
 
-    padding: 10px 15px;
+    padding: 15px 25px;
     gap: 15px;
 
 }
 .link:hover{
     background:lightskyblue;
-    transition: all 0.5s;
+    transition: all 0.7s;
 }
 .active{
 }
 .icon, .link_text{
-    font-size: 20px;
+    font-size: 22px;
 }

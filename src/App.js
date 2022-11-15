@@ -22,6 +22,7 @@ const App = () => {
     <UserContextProvider>
       <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
         <Sidebar>
+<<<<<<< Updated upstream
           <Routes>
             <Route path='/dashboard' element={<PrivateRoute/>}>
               <Route path="/dashboard" element={<Dashboard />}/>
@@ -32,8 +33,37 @@ const App = () => {
             <Route path='/Form' element={<PrivateRoute/>}>
               <Route path="/Form" element={<Form />}/>
             </Route>
+=======
+          {/*<Routes>
+            <Route
+              path ='/dashboard'
+              element= {
+                <RequireAuth>
+                  <RequireAdmin>
+                    <Dashboard />
+                  </RequireAdmin>
+                </RequireAuth>
+              }/>
+              <Route 
+              path="/" 
+              element={
+                <RequireAuth>
+                  <RequireAdmin>
+                    <Dashboard />
+                  </RequireAdmin>
+                </RequireAuth>
+              } />
+              <Route 
+              path="/Form" 
+              element={
+                <RequireAuth>
+                  <Form />
+                </RequireAuth>
+              }/>
+>>>>>>> Stashed changes
             <Route path="/login" element={<Login />}/>
-          </Routes>
+          </Routes>*/}
+        <Form/>
         </Sidebar>
 
 
