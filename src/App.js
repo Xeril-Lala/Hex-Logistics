@@ -12,16 +12,9 @@ import RequireAuth from './routes/RequireAuth';
 import RequireAdmin from './routes/RequireAdmin';
 
 const App = () => {
-  const [open, setOpen] = useState(true);
-  const Menus = [
-    { title: "Dashboard", src: "/assets/line_chart_up" },
-    { title: "Form", src: "dontknow mate" },
-    { title: "Setting", src: "Setting" },
-  ];
-
   return (
     <UserContextProvider>
-      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white">
         <Sidebar>
           {/*
           <Routes>

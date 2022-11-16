@@ -31,18 +31,18 @@ const Sidebar = ({children}) => {
   ]
   return (
 
-      <div className="container-side h-full ">
+      <div className="flex">
         { isLogged &&
-         <div style={{width: isOpen ? "200px" : "50px"}} className="text-gray-100 sidebar bg-gradient-to-b from-cyan-500 to-blue-500 mr-10">
-             <div className="top_section mb-3 ">
-                 <h1 style={{display: isOpen ? "block" : "none"}} className="logo"> <SiHexo/> </h1>
-                 <div style={{marginLeft: isOpen ? "80px" : "0px"}} className="bars text-white cursor-pointer">
+         <div style={{width: isOpen ? "350px" : "80px"}} className="">
+             <div className="top_section">
+                 <h1 style={{display: isOpen ? "block" : "none"}} className=""> <SiHexo/> </h1>
+                 <div style={{marginLeft: isOpen ? "165px" : "8px"}} className="">
                      <FaBars onClick={toggle}/>
                  </div>
              </div>
              {
                 isAdmin &&
-                    <a href='/' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900">
+                    <a href='/' className="" activeclassName="">
                         <div className='icon'><AiOutlineDashboard/></div>
                         <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
                     </a>
@@ -50,14 +50,14 @@ const Sidebar = ({children}) => {
 
              {
                  menuItem.map((item, index)=>(
-                     <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75 items-center" activeclassName="bg-sky-900">
+                     <NavLink to={item.path} key={index} className="r" activeclassName="">
                          <div className="icon">{item.icon}</div>
                          <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
                      </NavLink>
                  ))
              }
                       
-            <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900" onClick={handleClick}>
+            <NavLink to='/login' className="" activeclassName="" onClick={handleClick}>
                 <div className='icon'><BiLogOutCircle/></div>
                 <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
             </NavLink>

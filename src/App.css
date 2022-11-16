@@ -25,21 +25,26 @@
 
 
 
+/*Sidebar*/
+/*
+.adjust{
+    height:100%;
+}
+
 *{
     margin:0;
     padding:0;
     text-decoration: none;
 }
+
 .container-side{
     display:flex;
+    
 }
+
 main{
     width: 100%;
     padding: 10px;
-}
-.sidebar{
-    transition: all .2s;
-    width:300px;
 }
 .top_section{
     display: flex;
@@ -56,16 +61,18 @@ main{
 }
 .link{
 
-    padding: 10px 15px;
+    padding: 15px 25px;
     gap: 15px;
 
 }
 .link:hover{
     background:lightskyblue;
-    transition: all 0.5s;
+    transition: all 1s;
+    border-radius: 10%;
+    padding:10%;
 }
 .active{
 }
 .icon, .link_text{
     font-size: 20px;
-}
+}*/
