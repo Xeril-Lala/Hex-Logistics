@@ -27,7 +27,6 @@ export const postFormData = async (postForm) => {
         "contactNumber": String(postForm.contactNumber),
         "formFiller": String(postForm.formFiller), 
     });
-
     var url = `${API_URL}/api/bays/queue`;
     return await fetch (url, {
         method: 'POST',
@@ -35,6 +34,7 @@ export const postFormData = async (postForm) => {
             "Content-Type": "application/json"
         },
         body: parsedData
+
     }).then(response=>{
         if(!response.ok) throw new Error('Error in response')
         return response.json()

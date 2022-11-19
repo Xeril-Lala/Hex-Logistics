@@ -37,7 +37,36 @@ const Form = () => {
         navigate('/')
       };
 
+  const [formData, setForm]= useState ({
+    materialId:0,
+    statusId:"",
+    purchaseDate:Date.now(),
+    estimatedDate:Date.now(),
+    deliveryAddress:"",
+    vendor:"",
+    trackingNumber:0,
+    invoiceNumber:"",
+    contactNumber:"",
+    formFiller:"",
+  });
 
+  const handleInput= (event) => {
+    setForm({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  
+
+      } 
+
+ 
+  
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formData);
+      };
+
+console.log(Date.new);
   return (
     <form onSubmit={handleSubmit} className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
       <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
@@ -269,8 +298,6 @@ const Form = () => {
             placeholder="123456"
           />
         </div>
-
-
         <div className="box text-left text-xl">
           <label
             className="form-label inline-block mb-2 text-gray-700 text-left"
@@ -305,6 +332,7 @@ const Form = () => {
         <div className="box text-left text-xl">
           <label
             className="form-label inline-block mb-2 text-gray-700 text-left"
+
           >
             On Site Contact Number
           </label>
@@ -416,6 +444,7 @@ const Form = () => {
       </button>
       </div>
     </form>
+
   );
 };
 
