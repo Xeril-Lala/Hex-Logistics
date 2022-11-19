@@ -3,12 +3,13 @@ import React from 'react';
 import { useState } from "react";
 // pages imports
 import { SiHexo } from "react-icons/si"
-import { BiLogOutCircle } from "react-icons/bi"
 import { AiOutlineDashboard } from "react-icons/ai";
 import {
     FaBars,
     FaWpforms
 }from "react-icons/fa";
+import { BiLogOutCircle } from "react-icons/bi"
+
 import { NavLink } from 'react-router-dom';
 import {useUser} from '../../hooks/useUser'
 
@@ -42,7 +43,7 @@ const Sidebar = ({children}) => {
              </div>
              {
                 isAdmin &&
-                    <a href='/' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900">
+                    <a href='/' className="bg-transparent flex bottom-1  link duration-75 items-center">
                         <div className='icon'><AiOutlineDashboard/></div>
                         <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
                     </a>
@@ -50,14 +51,15 @@ const Sidebar = ({children}) => {
 
              {
                  menuItem.map((item, index)=>(
-                     <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75 items-center" activeclassName="bg-sky-900">
+                     <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75 items-center" >
+
                          <div className="icon">{item.icon}</div>
                          <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
                      </NavLink>
                  ))
              }
                       
-            <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900" onClick={handleClick}>
+            <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" onClick={handleClick}>
                 <div className='icon'><BiLogOutCircle/></div>
                 <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
             </NavLink>

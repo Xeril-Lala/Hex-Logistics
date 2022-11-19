@@ -1,10 +1,41 @@
 import "./Form.css";
 import React, { useState } from "react";
+import Select from 'react-select';
+import { postFormData } from "../../services/baysData";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 const Form = () => {
+  const  navigate = useNavigate();
+
+  const [formData, setForm]= useState ({
+    materialId:0,
+    statusId:"",
+    purchasedDate:"",
+    estimatedDate:"",
+    deliveryAddress:"",
+    vendor:"",
+    trackingNumber:0,
+    invoiceNumber:"",
+    contactNumber:"",
+    formFiller:"",
+  });
+
+  const handleInput= (event) => {
+    setForm({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  } 
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formData);
+        postFormData(formData);
+        navigate('/')
+      };
 
   const [formData, setForm]= useState ({
     materialId:0,
@@ -37,65 +68,41 @@ const Form = () => {
 
 console.log(Date.new);
   return (
-    <div className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
-      <div class="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
-        <div class="box col-span-2 text-left text-3xl">Material Details</div>
+    <form onSubmit={handleSubmit} className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
+      <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
+        <div className="box col-span-2 text-left text-3xl">Material Details</div>
         
         
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700"
+            className="form-label inline-block mb-2 text-gray-700"
           >
             Material Type
           </label>
-          <input
-            required
-            type="text"
-            list="materials"
-            name="materialId"
-            onChange = { handleInput } 
-            value={ formData.materialId}
-            className="
-                    form-control
-                    block
-                    w-full
-                    px-3
-                    py-1.5
-                    text-base
-                    font-normal
-                    text-gray-700
-                    bg-white bg-clip-padding
-                    border border-solid border-gray-300
-                    rounded
-                    transition
-                    ease-in-out
-                    m-0
-                    focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none"
-            id="materialType"
-            placeholder="Steel"
-          />
-          <datalist id="materials">
-          <option value="Steel"/>
-          <option value="Plastic"/>
-          <option value="Cotton"/>
-          <option value="Wood"/>
-          </datalist>
+          <Select name="materialId" onChange={(selectedMaterial) =>   
+            {setForm({...formData,materialId: selectedMaterial.value})}} defaultValue={formData.materialId} options={
+          [
+          {value: 1, label: 'Wood'},
+          {value: 2, label: 'Steel'},
+          {value: 3, label: 'Plastic'},
+          {value: 4, label: 'Cotton'}
+          ]} />
         </div>
 
 
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Date of Purchase
           </label>
           <input
             required
             type="date"
-            name="purchaseDate"
+            name="purchasedDate"
             onChange = { handleInput } 
-            value={ formData.purchaseDate }
-            class="
+            value={ formData.purchasedDate }
+            className="
                     form-control
                     block
                     w-full
@@ -117,9 +124,9 @@ console.log(Date.new);
         </div>
         
         
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Delivery Address
           </label>
@@ -129,7 +136,7 @@ console.log(Date.new);
             name="deliveryAddress"
             onChange = { handleInput } 
             value={ formData.deliveryAddress}
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -152,9 +159,9 @@ console.log(Date.new);
         </div>
 
 
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Estimated Date of Arrival
           </label>
@@ -164,7 +171,7 @@ console.log(Date.new);
             name="estimatedDate"
             onChange = { handleInput } 
             value={ formData.estimatedDate}
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -186,12 +193,11 @@ console.log(Date.new);
           />
         </div>
 
-        <div class="box col-span-2 text-left text-3xl">Delivery Details</div>
+        <div className="box col-span-2 text-left text-3xl">Delivery Details</div>
 
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            for="vendorName"
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Vendor
           </label>
@@ -201,7 +207,7 @@ console.log(Date.new);
             name="vendor"
             onChange = { handleInput } 
             value={ formData.vendor}
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -224,9 +230,9 @@ console.log(Date.new);
         </div>
 
 
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Tracking Number
           </label>
@@ -236,7 +242,7 @@ console.log(Date.new);
             name="trackingNumber"
             onChange = { handleInput } 
             value={ formData.trackingNumber }
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -259,9 +265,9 @@ console.log(Date.new);
         </div>
 
         
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Invoice Number
           </label>
@@ -271,7 +277,7 @@ console.log(Date.new);
             name="invoiceNumber"
             onChange = { handleInput } 
             value={ formData.invoiceNumber }
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -292,11 +298,9 @@ console.log(Date.new);
             placeholder="123456"
           />
         </div>
-
-
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             Packing Number
           </label>
@@ -304,9 +308,7 @@ console.log(Date.new);
             required
             type="number"
             name="packingNumber"
-            onChange = { handleInput } 
-            //value={ formData.materialId }
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -327,9 +329,10 @@ console.log(Date.new);
             placeholder="123456"
           />
         </div>
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
+
           >
             On Site Contact Number
           </label>
@@ -339,7 +342,7 @@ console.log(Date.new);
             name="contactNumber"
             onChange = { handleInput } 
             value={ formData.contactNumber}
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -360,9 +363,9 @@ console.log(Date.new);
             placeholder="Site's Phone Number"
           />
         </div>
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left"
+            className="form-label inline-block mb-2 text-gray-700 text-left"
           >
             On Duty Form Filler
           </label>
@@ -373,7 +376,7 @@ console.log(Date.new);
             name="formFiller"
             onChange = { handleInput } 
             value={ formData.formFiller }
-            class="
+            className="
                     form-control
                     block
                     w-full
@@ -394,18 +397,24 @@ console.log(Date.new);
             placeholder="Uploader Name"
           />
         </div>
-        <div class="box text-left text-xl">
+        <div className="box text-left text-xl mb-14 ">
           <label
-            class="form-label inline-block mb-2 text-gray-700 text-left">
+            className="form-label inline-block mb-2 text-gray-700 text-left">
             Load or Unload
           </label>
-          <input
+          <Select name="statusId" onChange={(selectedStatus) =>   
+            {setForm({...formData,statusId: selectedStatus.value})}} defaultValue={formData.statusId} options={
+          [
+          {value: 'WL', label: 'Load'},
+          {value: 'WU', label: 'Unload'}
+          ]} />
+          {/* <input
             required
             type="text"
-            name="loadUnload"
+            name="statusId"
             onChange = { handleInput } 
-            //value={ formData.?????????????}
-            class="
+             value={ formData.statusId}
+            className="
                     form-control
                     block
                     w-full
@@ -424,18 +433,18 @@ console.log(Date.new);
                 "
             id="formFiller"
             placeholder="Load / Unload"
-          />
+          /> */}
         </div>
       </div>
-      <div class="">
+      <div className="">
       <button
-        class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10"
-        onClick = { handleSubmit }
+        className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10"
       >
         Upload
       </button>
       </div>
-    </div>
+    </form>
+
   );
 };
 
