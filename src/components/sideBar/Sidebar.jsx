@@ -31,12 +31,12 @@ const Sidebar = ({children}) => {
   ]
   return (
 
-      <div className="flex">
+      <div className="flex h-screen">
         { isLogged &&
-         <div style={{width: isOpen ? "350px" : "80px"}} className="">
+         <div style={{width: isOpen ? "350px" : "80px"}} className="bg-gradient-to-b from-cyan-400 to-blue-500">
              <div className="top_section">
                  <h1 style={{display: isOpen ? "block" : "none"}} className=""> <SiHexo/> </h1>
-                 <div style={{marginLeft: isOpen ? "165px" : "8px"}} className="">
+                 <div style={{marginLeft: isOpen ? "165px" : "28px"}} className=" mt-8">
                      <FaBars onClick={toggle}/>
                  </div>
              </div>

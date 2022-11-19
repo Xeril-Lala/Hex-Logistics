@@ -1,9 +1,14 @@
 .App {
   text-align: center;
+  
 }
-
 .card {
-  @apply dark:bg-zinc-800  rounded-lg shadow-lg bg-white;
+  @apply 
+  dark:bg-zinc-800  
+  rounded-lg 
+  shadow-lg 
+  bg-white;
+  
 }
 
 .percentageChart{
@@ -23,8 +28,22 @@
 }
 /* py-2 al CARD */
 
-
-
+.top_section{
+    display: flex;
+    align-items:center;
+    padding-right:80px;
+}
+.container-side{
+    display:flex;
+}
+.logo{
+    font-size: 35px;
+}
+.bars{
+    display: flex;
+    font-size: 25px;
+    margin-left: 50px;
+}
 /*Sidebar*/
 /*
 .adjust{
@@ -37,28 +56,15 @@
     text-decoration: none;
 }
 
-.container-side{
-    display:flex;
-    
-}
+
 
 main{
     width: 100%;
     padding: 10px;
 }
-.top_section{
-    display: flex;
-    align-items:center;
-    padding:20px 15px;
-}
-.logo{
-    font-size: 35px;
-}
-.bars{
-    display: flex;
-    font-size: 25px;
-    margin-left: 50px;
-}
+
+
+
 .link{
 
     padding: 15px 25px;

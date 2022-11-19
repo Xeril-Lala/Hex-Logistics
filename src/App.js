@@ -14,8 +14,8 @@ import RequireAdmin from './routes/RequireAdmin';
 const App = () => {
   return (
     <UserContextProvider>
-      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white">
-        <Sidebar>
+      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+        <Sidebar >
           {/*
           <Routes>
             <Route
@@ -46,7 +46,7 @@ const App = () => {
             <Route path="/login" element={<Login />}/>
           </Routes>*/}
           <Form/>
-        </Sidebar>
+        </Sidebar >
 
 
       </div>
