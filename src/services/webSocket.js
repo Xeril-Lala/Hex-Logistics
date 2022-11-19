@@ -3,7 +3,7 @@ import { HubConnectionBuilder} from '@microsoft/signalr';
 
 import {io} from "socket.io-client";
 
-export const socket = io("http://localhost:4000");
+export const socket = io(API_URL);
 
 export const connectWebsocket = new HubConnectionBuilder()
     .withUrl(`${API_URL}/signalrServer`)
