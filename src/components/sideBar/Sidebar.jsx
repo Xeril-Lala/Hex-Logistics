@@ -31,7 +31,7 @@ const Sidebar = ({children}) => {
   ]
   return (
 
-      <div className="flex h-screen">
+      <div className="flex h-full">
         { isLogged &&
          <div style={{width: isOpen ? "350px" : "80px"}} className="bg-gradient-to-b from-cyan-400 to-blue-500">
              <div className="top_section">

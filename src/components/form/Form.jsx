@@ -37,8 +37,8 @@ const Form = () => {
 
 console.log(Date.new);
   return (
-    <div className="bg-red w-screen">
-      <div className="bg-white h-5/6 w-3/6 px-24 mr-auto ml-auto place-items-center rounded-lg shadow-lg grid grid-cols-2 gap-x-56 gap-y-0">
+    <div className="h-full w-full pt-10 overflow-hidden">
+      <div className="bg-white w-5/6 place-items-center rounded-lg shadow-lg px-32 py-10">
 
           <div class="box col-span-2 text-left text-3xl">Material Details</div>
           
