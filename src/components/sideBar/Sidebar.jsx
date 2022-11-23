@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useState } from "react";
+import { slide as Menu } from 'react-burger-menu'
 // pages imports
 import { SiHexo } from "react-icons/si"
 import { BiLogOutCircle } from "react-icons/bi"
@@ -31,41 +32,45 @@ const Sidebar = ({children}) => {
   ]
   return (
 
-      <div className="flex h-full">
-        { isLogged &&
-         <div style={{width: isOpen ? "350px" : "80px"}} className="bg-gradient-to-b from-cyan-400 to-blue-500">
-             <div className="top_section">
-                 <h1 style={{display: isOpen ? "block" : "none"}} className=""> <SiHexo/> </h1>
-                 <div style={{marginLeft: isOpen ? "165px" : "28px"}} className=" mt-8">
-                     <FaBars onClick={toggle}/>
-                 </div>
-             </div>
-             {
-                isAdmin &&
-                    <a href='/' className="" activeclassName="">
-                        <div className='icon'><AiOutlineDashboard/></div>
-                        <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
-                    </a>
-             }
+    <div className="flex h-full fixed">
+      { isLogged &&
+       <div style={{width: isOpen ? "200px" : "50px"}} className="text-white sidebar bg-neutral-800">
+           <div className="top_section mb-3 ">
+               <h1 style={{display: isOpen ? "block" : "none"}} className="logo"> <SiHexo/> </h1>
 
-             {
-                 menuItem.map((item, index)=>(
-                     <NavLink to={item.path} key={index} className="r" activeclassName="">
-                         <div className="icon">{item.icon}</div>
-                         <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
-                     </NavLink>
-                 ))
-             }
-                      
-            <NavLink to='/login' className="" activeclassName="" onClick={handleClick}>
-                <div className='icon'><BiLogOutCircle/></div>
-                <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
-            </NavLink>
-         </div>
+               <div style={{marginLeft: isOpen ? "80px" : "0px"}} className="bars text-white cursor-pointer">
+                   <FaBars onClick={toggle}/>
+               </div>
+           </div>
+           {
+              isAdmin &&
+
+                  <a href='/' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900">
+                      <div className='icon'><AiOutlineDashboard/></div>
+                      <div style={{display: isOpen ? "block" : "none"}} className="link_text">Dashboard</div>
+                  </a>
+           }
+
+           {
+               menuItem.map((item, index)=>(
+                   
+                   <NavLink to={item.path} key={index} className="bg-transparent flex link duration-75 items-center" activeclassName="bg-sky-900">
+                       <div className="icon">{item.icon}</div>
+                       <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                   </NavLink>
+               ))
+           }
+                    
+          
+          <NavLink to='/login' className="bg-transparent flex bottom-1  link duration-75 items-center" activeclassName="bg-sky-900" onClick={handleClick}>
+              <div className='icon'><BiLogOutCircle className=' text-gray-100'/></div>
+              <div style={{display: isOpen ? "block" : "none"}} className="link_text">Logout</div>
+          </NavLink>
+       </div>
 }
-         <main>{children}</main>
-      </div>
-  );
+       <main>{children}</main>
+    </div>
+);
 };
 
 export default Sidebar;

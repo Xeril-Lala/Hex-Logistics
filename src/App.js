@@ -14,7 +14,7 @@ import RequireAdmin from './routes/RequireAdmin';
 const App = () => {
   return (
     <UserContextProvider>
-      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white ">
+      <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white h-max">
         <Sidebar >
           {/*
           <Routes>

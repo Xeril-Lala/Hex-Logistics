@@ -37,15 +37,15 @@ const Form = () => {
 
 console.log(Date.new);
   return (
-    <div className="h-full w-full pt-10 overflow-hidden">
-      <div className="bg-white w-5/6 place-items-center rounded-lg shadow-lg px-32 py-10">
+    <div className=" h-{20000px} bg-white">
+      <div className="">
 
-          <div class="box col-span-2 text-left text-3xl">Material Details</div>
+          <div class="">Material Details</div>
           
           
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700"
+              class=""
             >
               Material Type
             </label>
@@ -56,7 +56,7 @@ console.log(Date.new);
               name="materialId"
               onChange = { handleInput } 
               value={ formData.materialId}
-              className="Form_Imput form-control"
+              className=""
               id="materialType"
               placeholder="Steel"
             />
@@ -69,9 +69,9 @@ console.log(Date.new);
           </div>
 
 
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Date of Purchase
             </label>
@@ -81,15 +81,15 @@ console.log(Date.new);
               name="purchaseDate"
               onChange = { handleInput } 
               value={ formData.purchaseDate }
-              className="Form_Imput form-control"
+              className=""
               id="datePurchase"
             />
           </div>
           
           
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Delivery Address
             </label>
@@ -99,16 +99,16 @@ console.log(Date.new);
               name="deliveryAddress"
               onChange = { handleInput } 
               value={ formData.deliveryAddress}
-              className="Form_Imput form-control"
+              className=""
               id="deliveryLocation"
               placeholder="Destination Address"
             />
           </div>
 
 
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Estimated Date of Arrival
             </label>
@@ -118,18 +118,18 @@ console.log(Date.new);
               name="estimatedDate"
               onChange = { handleInput } 
               value={ formData.estimatedDate}
-              className="Form_Imput form-control"
+              className=""
               id="estamatedArrival"
               placeholder="#123456"
             />
           </div>
 
-          <div class="box col-span-2 text-left text-3xl">Delivery Details</div>
+          <div class="">Delivery Details</div>
 
-          <div class="box text-left text-xl">
+          <div class="">
             <label
               for="vendorName"
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Vendor
             </label>
@@ -139,16 +139,16 @@ console.log(Date.new);
               name="vendor"
               onChange = { handleInput } 
               value={ formData.vendor}
-              className="Form_Imput form-control"
+              className=""
               id="vendorName"
               placeholder="Brand Name"
             />
           </div>
 
 
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Tracking Number
             </label>
@@ -158,16 +158,16 @@ console.log(Date.new);
               name="trackingNumber"
               onChange = { handleInput } 
               value={ formData.trackingNumber }
-              className="Form_Imput form-control"
+              className=""
               id="trackNumber"
               placeholder="123456"
             />
           </div>
 
           
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Invoice Number
             </label>
@@ -177,16 +177,16 @@ console.log(Date.new);
               name="invoiceNumber"
               onChange = { handleInput } 
               value={ formData.invoiceNumber }
-              className="Form_Imput form-control"
+              className=""
               id="invoiceNumber"
               placeholder="123456"
             />
           </div>
 
 
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               Packing Number
             </label>
@@ -196,14 +196,14 @@ console.log(Date.new);
               name="packingNumber"
               onChange = { handleInput } 
               //value={ formData.materialId }
-              className="Form_Imput form-control"
+              className=""
               id="packingNumber"
               placeholder="123456"
             />
           </div>
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               On Site Contact Number
             </label>
@@ -213,14 +213,14 @@ console.log(Date.new);
               name="contactNumber"
               onChange = { handleInput } 
               value={ formData.contactNumber}
-              className="Form_Imput form-control"
+              className=""
               id="onSiteNumber"
               placeholder="Site's Phone Number"
             />
           </div>
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left"
+              class=""
             >
               On Duty Form Filler
             </label>
@@ -231,14 +231,14 @@ console.log(Date.new);
               name="formFiller"
               onChange = { handleInput } 
               value={ formData.formFiller }
-              className="Form_Imput form-control"
+              className=""
               id="formFiller"
               placeholder="Uploader Name"
             />
           </div>
-          <div class="box text-left text-xl">
+          <div class="">
             <label
-              class="form-label inline-block mb-2 text-gray-700 text-left">
+              class="">
               Load or Unload
             </label>
             <input
@@ -247,13 +247,13 @@ console.log(Date.new);
               name="loadUnload"
               onChange = { handleInput } 
               //value={ formData.?????????????}
-              className="Form_Imput form-control"
+              className=""
               id="formFiller"
               placeholder="Load / Unload"
             />
           </div>
 
-          <div class="col-span-2">
+          <div class="">
             <button
               class="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 "
               onClick = { handleSubmit }

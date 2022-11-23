@@ -3,16 +3,12 @@ input{
 }
 .box {
 	@apply
-		h-full
-        w-full
 		rounded;
-
 }
 
 .Form_Imput{
 
 	@apply
-	
     block
     w-full
     px-3
