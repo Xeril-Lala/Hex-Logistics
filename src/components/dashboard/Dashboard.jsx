@@ -13,6 +13,8 @@ import '../../styles/Dashboard.css';
 import '../../styles/Colors.css';
 //Api endpoints
 import useDashboard from "../../hooks/useDashboard";
+import { SiHexo } from "react-icons/si"
+
 
 ChartJS.register(
     CategoryScale,
@@ -35,6 +37,7 @@ const Dashboard = () => {
 
     return (
         <Fragment>
+
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 xl:mx-40 mx-4 py-5">
                 <TotalBays 
                     generalBays = {generalBays}

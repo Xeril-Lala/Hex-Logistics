@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 html{
-    @apply  
-    bg-[#ebf1fd] 
-    dark:bg-zinc-900
-    h-full;
-  }
-  body{
-  }
+  height: 100%;
+  @apply  bg-[#ebf1fd] dark:bg-zinc-900;
+}
+body{
+  height: 100vh;
+
+}

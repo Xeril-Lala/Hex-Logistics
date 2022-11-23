@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getBaysData } from "../services/baysData";
 import { getDailyData } from "../services/dailyData";
-import { connectWebsocket } from "../services/webSocket";
+import { connectWebsocket, socket } from "../services/webSocket";
 import { getWeeklyData } from "../services/weeklyData";
 import useBays from "./useBays";
 
@@ -19,6 +19,7 @@ export const useDashboard = () => {
     const loadDashboard = () =>{
         Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
         .then(([bays,daily,weekly])=>{
+            console.log("aaaaaaaaaa");
             setGeneralBays(bays.general)
             setDailyData(daily);
             setWeeklyData(weekly);
@@ -26,10 +27,8 @@ export const useDashboard = () => {
             console.log(error);
         })
     }
-        //assign data
         useEffect(()=>{
             setIsLoading(true);
-            //Load all data
             Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
             .then(([bays,daily,weekly])=>{
                 setGeneralBays(bays.general);
@@ -40,8 +39,7 @@ export const useDashboard = () => {
                 console.log(error);
             }).finally(()=>{
                 setIsLoading(false);
-                //Connect to websocket
-                setConnection(connectWebsocket);
+                setConnection(socket);
             })
         },[]);
 
@@ -49,7 +47,6 @@ export const useDashboard = () => {
             if (connection) {
                 console.log("Loading connection...");
                 (async () => {
-                  await connection.start();
                   console.log("Websocket Connected.");
                   connection.on("LoadBays",async () => {
                     loadBays();

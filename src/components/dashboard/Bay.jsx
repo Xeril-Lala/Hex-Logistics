@@ -56,10 +56,20 @@ const Bay = ({bay}) => {
                         <Doughnut data={loadedChartData} options={options} />
                         <p className="percentageChart text-lg 2xl:text-[27px]">{percentage}%</p>
                         </div>
-                        <div className="information flex flex-row justify-between mb-1">
-                            <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
-                            <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
-                        </div>
+                        {
+                            status.id !== 'WL'&& status.id !== 'WU' ?(
+                                <div className="information flex flex-row justify-between mb-1">
+                                <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
+                                <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
+                                </div>
+                            ) : 
+                            <div className="information flex flex-row justify-between mb-1">
+                                <div className="ml-5 text-lg ml-2 mt-2"> </div>
+                                <div className="mr-5 text-lg ml-2 mt-2"> </div>
+                            </div>
+
+                        }
+
                         </Fragment>
                     ) : 
                         <div className="flex flex-col justify-between mt-2">
