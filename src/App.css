@@ -67,8 +67,11 @@ main{
 
 }
 .link:hover{
-    background:lightskyblue;
     transition: all 0.5s;
+    @apply
+    bg-neutral-700
+    rounded-xl
+    mx-2
 }
 .active{
 }

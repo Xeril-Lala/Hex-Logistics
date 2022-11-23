@@ -39,8 +39,8 @@ const Form = () => {
 
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
-      <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
+    <form onSubmit={handleSubmit} className=" h-full p-11 container w-full grid place-items-center ">
+      <div className="bg-white rounded-lg shadow-lg grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-48 gap-y-0 h-full w-11/12 mt-10 p-10">
         <div className="box col-span-2 text-left text-3xl">Material Details</div>
         
         
