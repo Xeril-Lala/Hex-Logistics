@@ -32,13 +32,13 @@ ChartJS.register(
 const Dashboard = () => {
     const {isLoading,bays, generalBays,dailyData,weeklyData} = useDashboard()
     if(isLoading){
-        return <div className="h-full"></div>
+        return <div className="h-full w-full"></div>
     }
 
     return (
         <Fragment>
 
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-10 xl:mx-40 mx-4 py-5">
+            <div className="w-full h-full grid grid-cols-5 gap-10  mx-4 py-5">
                 <TotalBays 
                     generalBays = {generalBays}
                 />
