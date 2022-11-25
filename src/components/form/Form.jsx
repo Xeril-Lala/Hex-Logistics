@@ -44,9 +44,7 @@ const Form = () => {
         
         
         <div className="box text-left text-xl">
-          <label
-            className="form-label inline-block mb-2 text-gray-700"
-          >
+          <label className="form-label inline-block mb-2 text-gray-700">
             Material Type
           </label>
           <Select name="materialId" onChange={(selectedMaterial) =>   
