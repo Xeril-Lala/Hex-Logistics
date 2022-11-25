@@ -39,8 +39,8 @@ const Form = () => {
 
 
   return (
-    <form onSubmit={handleSubmit} className=" h-full p-11 container w-full grid place-items-center ">
-      <div className="bg-white rounded-lg shadow-lg grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-48 gap-y-0 h-full w-11/12 mt-10 p-10">
+    <form onSubmit={handleSubmit} className=" h-screen p-11 container w-full grid place-items-center ">
+      <div className="bg-white rounded-lg shadow-lg grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-48 gap-y-0 h-full w-full mt-10 p-10">
         <div className="box col-span-2 text-left text-3xl">Material Details</div>
         
         
@@ -406,15 +406,17 @@ const Form = () => {
             id="formFiller"
             placeholder="Load / Unload"
           /> */}
+        
         </div>
-      </div>
-      <div className="">
+      <div className="col-span-2">
       <button
-        className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10"
+        className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10 "
       >
         Upload
       </button>
       </div>
+      </div>
+      
     </form>
   );
 };

@@ -32,7 +32,7 @@ ChartJS.register(
 const Dashboard = () => {
     const {isLoading,bays, generalBays,dailyData,weeklyData} = useDashboard()
     if(isLoading){
-        return <div className="h-screen"></div>
+        return <div className="h-full"></div>
     }
 
     return (

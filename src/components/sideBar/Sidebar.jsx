@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useState } from "react";
-import { slide as Menu } from 'react-burger-menu'
+
 // pages imports
 import { SiHexo } from "react-icons/si"
 import { AiOutlineDashboard } from "react-icons/ai";
@@ -13,7 +13,8 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { GiHistogram } from "react-icons/gi";
 import { RiFileHistoryLine } from "react-icons/ri";
 import { NavLink } from 'react-router-dom';
-import {useUser} from '../../hooks/useUser'
+import {useUser} from '../../hooks/useUser';
+import "./Sidebar.css";
 
 const Sidebar = ({children}) => {
     const {/*isLogged*/logout,isAdmin} = useUser()
@@ -41,12 +42,12 @@ const Sidebar = ({children}) => {
 
       <div className="container-side h-full">
         { isLogged &&
-         <div   style={{width: isOpen ? "200px" : "50px"}}
+         <div   style={{width: isOpen ? "300px" : "80px"}}
                 className="text-gray-100 sidebar bg-neutral-800">
              <div className="top_section mb-3 ">
                  <h1    style={{display: isOpen ? "block" : "none"}} 
                         className="logo"> <SiHexo/> </h1>
-                 <div   style={{marginLeft: isOpen ? "80px" : "0px"}} 
+                 <div   style={{marginLeft: isOpen ? "85px" : "5px"}} 
                         className="bars text-white cursor-pointer">
                      <FaBars onClick={toggle}/>
                  </div>
