@@ -7,6 +7,13 @@ export const getBaysData = async () => {
     .catch((error)=> {console.log(error);})
 }
 
+export const getMaterialsData = async ()=>{
+    const url = `${API_URL}/api/materials`;
+    return await fetch (url)
+    .then((response)=>response.json())
+    .catch((error)=>console.log(error))
+}
+
 export const postForm = async () => {
     var url = `${API_URL}/api/bays/waiting/`;
     return await fetch (url)
@@ -16,8 +23,8 @@ export const postForm = async () => {
 
 export const postFormData = async (postForm) => {
     const parsedData = JSON.stringify({
-        "materialId": parseInt(postForm.materialId),
-        "statusId": String(postForm.statusId),
+        "material": String(postForm.material),
+        "status": String(postForm.status),
         "purchasedDate": String(postForm.purchasedDate),
         "estimatedDate": String(postForm.estimatedDate),
         "deliveryAddress": String(postForm.deliveryAddress),
@@ -27,7 +34,7 @@ export const postFormData = async (postForm) => {
         "contactNumber": String(postForm.contactNumber),
         "formFiller": String(postForm.formFiller), 
     });
-    var url = `${API_URL}/api/bays/queue`;
+    const url = `${API_URL}/api/bays/queue`;
     return await fetch (url, {
         method: 'POST',
         headers: {
