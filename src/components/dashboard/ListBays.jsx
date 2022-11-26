@@ -1,4 +1,4 @@
-import Bay from "./Bay";
+import Bay from "./bay/Bay";
 
 const ListBays = ({bays}) => {
     return ( 

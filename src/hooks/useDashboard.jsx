@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getBaysData } from "../services/baysData";
-import { connectWebsocket, socket } from "../services/webSocket";
+import { socket } from "../services/webSocket";
 import { getDailyData,getWeeklyData } from "../services/statisticsData";
 import useBays from "./useBays";
 
@@ -47,10 +47,8 @@ export const useDashboard = () => {
                 console.log("Loading connection...");
                 (async () => {
                   console.log("Websocket Connected.");
-                  connection.on("LoadBays",async () => {
+                  connection.on("queue",async () => {
                     loadBays();
-                  });
-                  connection.on("LoadDashboard",async () => {
                     loadDashboard();
                   });
               })();
