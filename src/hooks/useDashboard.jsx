@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { getBaysData } from "../services/baysData";
-import { getDailyData } from "../services/dailyData";
 import { connectWebsocket, socket } from "../services/webSocket";
-import { getWeeklyData } from "../services/weeklyData";
+import { getDailyData,getWeeklyData } from "../services/statisticsData";
 import useBays from "./useBays";
 
 export const useDashboard = () => {

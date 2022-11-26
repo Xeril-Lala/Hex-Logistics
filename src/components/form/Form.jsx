@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Select from 'react-select';
 import { postFormData } from "../../services/baysData";
 import { useNavigate } from "react-router-dom";
+import useMaterials from "../../hooks/useMaterials";
 
 
 
@@ -10,9 +11,12 @@ import { useNavigate } from "react-router-dom";
 const Form = () => {
   const  navigate = useNavigate();
 
+  const { materials } = useMaterials();
+
+
   const [formData, setForm]= useState ({
-    materialId:0,
-    statusId:"",
+    material:"",
+    status:"",
     purchasedDate:"",
     estimatedDate:"",
     deliveryAddress:"",
@@ -47,14 +51,26 @@ const Form = () => {
           <label className="form-label inline-block mb-2 text-gray-700">
             Material Type
           </label>
-          <Select name="materialId" onChange={(selectedMaterial) =>   
-            {setForm({...formData,materialId: selectedMaterial.value})}} defaultValue={formData.materialId} options={
+
+          <Select name="material" onChange={(selectedMaterial) =>   
+            {setForm({...formData,material: selectedMaterial.value})}} 
+            defaultValue={formData.material} 
+            options={materials?.map((material)=>({
+              value: material?._id,
+              label: material?.name
+            }))} 
+            />
+          
+          {/* <Select name="material" onChange={(selectedMaterial) =>   
+            {setForm({...formData,material: selectedMaterial.value})}} 
+            defaultValue={formData.material} 
+            options={
           [
           {value: 1, label: 'Wood'},
           {value: 2, label: 'Steel'},
           {value: 3, label: 'Plastic'},
           {value: 4, label: 'Cotton'}
-          ]} />
+          ]} /> */}
         </div>
 
 
@@ -370,8 +386,8 @@ const Form = () => {
             className="form-label inline-block mb-2 text-gray-700 text-left">
             Load or Unload
           </label>
-          <Select name="statusId" onChange={(selectedStatus) =>   
-            {setForm({...formData,statusId: selectedStatus.value})}} defaultValue={formData.statusId} options={
+          <Select name="status" onChange={(selectedStatus) =>   
+            {setForm({...formData,status: selectedStatus.value})}} defaultValue={formData.statusS} options={
           [
           {value: 'WL', label: 'Load'},
           {value: 'WU', label: 'Unload'}
