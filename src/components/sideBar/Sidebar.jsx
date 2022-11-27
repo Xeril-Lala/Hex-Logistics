@@ -40,15 +40,15 @@ const Sidebar = ({children}) => {
   ]
   return (
 
-      <div className="container-side h-full w-full">
+      <div className="container-side static h-full w-full">
         { isLogged &&
-         <div   style={{width: isOpen ? "350px" : "80px"}}
+         <div   style={{width: isOpen ? "350px" : "75px"}}
                 className="text-gray-100 sidebar bg-neutral-800">
              <div className="top_section mb-3">
                  <h1    style={{display: isOpen ? "block" : "none"}} 
                         className="logo"> <SiHexo/> </h1>
-                 <div   style={{marginLeft: isOpen ? "90px" : "5px"}} 
-                        className="bars text-white cursor-pointer">
+                 <div   style={{marginLeft: isOpen ? "230px" : "-5px"}} 
+                        className="bars text-white cursor-pointer rounded-full p-3">
                      <FaBars onClick={toggle}/>
                  </div>
              </div>

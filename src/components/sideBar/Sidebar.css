@@ -6,10 +6,7 @@
 .container-side{
     display:flex;
 }
-main{
-    width: 100%;
-    padding: 10px;
-}
+
 .sidebar{
     transition: all .2s;
     
@@ -18,7 +15,7 @@ main{
 .top_section{
     display: flex;
     align-items:center;
-    padding:20px 15px;
+    padding:25px 15px;
 }
 .logo{
     font-size: 35px;
@@ -28,9 +25,16 @@ main{
     font-size: 25px;
     margin-left: 50px;
 }
+.bars:hover{
+    transition: all 0s;
+    @apply
+    bg-neutral-700
+    rounded-full
+    
+}
 .link{
 
-    padding: 10px 15px;
+    padding: 10px 20px;
     gap: 15px;
 
 }
@@ -38,8 +42,8 @@ main{
     transition: all 0.5s;
     @apply
     bg-neutral-700
-    rounded-xl
-    mx-1
+    rounded-r-lg
+    w-11/12
 }
 .active{
 }

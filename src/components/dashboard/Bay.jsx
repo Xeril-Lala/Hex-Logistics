@@ -59,12 +59,12 @@ const Bay = ({bay}) => {
                         {
                             status.id !== 'WL'&& status.id !== 'WU' ?(
                                 <div className="information flex flex-row justify-between mb-1">
-                                <div className="ml-5 text-lg ml-2 mt-2">{material}</div>
+                                <div className="ml-5 text-lg mt-2">{material}</div>
                                 <div className="mr-5 text-lg ml-2 mt-2">{guideNumber}</div>
                                 </div>
                             ) : 
                             <div className="information flex flex-row justify-between mb-1">
-                                <div className="ml-5 text-lg ml-2 mt-2"> </div>
+                                <div className="ml-5 text-lg mt-2"> </div>
                                 <div className="mr-5 text-lg ml-2 mt-2"> </div>
                             </div>
 
