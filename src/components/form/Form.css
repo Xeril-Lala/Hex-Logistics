@@ -3,9 +3,26 @@ input{
 }
 .box {
 	@apply
-		min-w-full
-		h-32
-        w-72
-		min-h-full
 		rounded;
 }
+
+.Form_Imput{
+
+	@apply
+    block
+    w-full
+    px-3
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding
+    border border-solid border-gray-300
+    rounded
+    transition
+    m-0
+    focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
+}
+
+/*
+bg-white h-full w-10/12 p-0 px-24 mr-auto ml-auto place-items-center rounded-lg shadow-lg grid grid-cols-2 gap-x-56 gap-y-0 
+*/

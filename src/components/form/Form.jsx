@@ -42,8 +42,8 @@ const Form = () => {
       };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white h-full m-11 container w-full grid place-items-center rounded-lg shadow-lg">
-      <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-x-56 gap-y-0 h-full mt-10">
+    <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-10  mx-4 py-5 p-11  h-full w-full  place-items-center  mr-auto ml-auto">
+      <div className="bg-white rounded-lg shadow-lg grid  grid-cols-2 gap-x-48 gap-y-0 p-10">
         <div className="box col-span-2 text-left text-3xl">Material Details</div>
              
         <div className="box text-left text-xl">
@@ -353,6 +353,8 @@ const Form = () => {
         Upload
       </button>
       </div>
+      </div>
+      
     </form>
   );
 };

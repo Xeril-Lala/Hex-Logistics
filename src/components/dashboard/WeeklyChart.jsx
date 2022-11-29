@@ -64,7 +64,7 @@ const WeeklyChart = ({week,weeklyData}) => {
     }, [weeklyData]);
 
     return ( 
-        <div className="card mt-12 pb-10 chart xl:mx-40  px-48">
+        <div className="card mt-12 mx-40 pb-10 chart px-48">
             <p>{week}</p>
             <Bar data={barChartData} options={options} />
         </div>   
