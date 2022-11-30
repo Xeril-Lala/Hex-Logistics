@@ -18,7 +18,6 @@ export const useDashboard = () => {
     const loadDashboard = () =>{
         Promise.all([getBaysData(),getDailyData(),getWeeklyData()])
         .then(([bays,daily,weekly])=>{
-            console.log("aaaaaaaaaa");
             setGeneralBays(bays.general)
             setDailyData(daily);
             setWeeklyData(weekly);

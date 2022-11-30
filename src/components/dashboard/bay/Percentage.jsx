@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import {Doughnut} from 'react-chartjs-2';
 
+
 const Percentage = ({times}) => {
     const [percentage,setPercentage] = useState(0);
     const [loadedChartData, setLoadedChartData] = useState({ datasets: [],});
@@ -41,7 +42,7 @@ const Percentage = ({times}) => {
             datasets : [
                 {
                     label: "First",
-                    backgroundColor: ["#3B7FB6", "#e0e0e0"],
+                    backgroundColor: ["#15b7a6", "#e0e0e0"],
                     data:[percentage, 100-(percentage >100 ? 100 : percentage)]
                 }
             ]        
@@ -49,9 +50,9 @@ const Percentage = ({times}) => {
     },[percentage])
     
     return ( 
-        <div className="relative mx-auto w-9/12 2xl:w-44 p-[12px]">
+        <div className="relative mx-auto w-9/12 2xl:w-44 p-[16px] pt-10">
             <Doughnut data={loadedChartData} options={options} />
-            <p className="percentageChart text-lg 2xl:text-[27px]">{percentage>100 ? '100' : percentage}%</p>
+            <p className="percentageChart text-lg 2xl:text-[27px] pt-5">{percentage>100 ? '100' : percentage}%</p>
         </div>
      );
 }

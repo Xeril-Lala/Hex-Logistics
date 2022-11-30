@@ -1,20 +1,21 @@
 import React, { Fragment } from "react";
 import Percentage from "./Percentage";
 import TimeLapsed from "./TimeLapsed";
-
+import {IoCheckmarkDoneCircleOutline} from "react-icons/io5";
 const Bay = ({bay}) => {
     const { name,personal,status, status:{icon,text,color}, guideNumber, material,times } = bay;
     console.log(bay);
 
         return ( 
-            <div className="card">
-                <p className="text-xl mt-2">{name}</p>
+            <div className="card_kpi">
+                <p className="text-xl mt-5">{name}</p>
                 {
                     status._id === 'AE' ? (
-                        <div className="flex flex-col justify-between mt-2">
+                        <div className="flex flex-col justify-between mt-1.5">
                             <label className="message-unavailable font-medium text-2xl">{text}</label>
-                            <div className="content-img flex justify-center mt-5">
-                                    <i className="uil uil-check-circle block text-green-600 text-9xl"></i>
+                            <div className="content-img flex justify-center">
+                                    {/*<i className="uil uil-check-circle block text-green-600 text-[150px]"></i>*/}
+                                    <IoCheckmarkDoneCircleOutline className="block text-green-500 text-[170px] mt-11" />
                             </div>
                         </div>
                     ) : status._id === 'UE' ? (

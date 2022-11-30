@@ -10,6 +10,14 @@
   bg-white
   h-auto;
 }
+.card_kpi {
+  @apply 
+  dark:bg-zinc-800  
+  rounded-lg 
+  shadow-lg 
+  bg-white
+  h-auto;
+}
 
 .percentageChart{
   position: absolute;

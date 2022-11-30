@@ -5,16 +5,16 @@ import { useState } from "react";
 // pages imports
 import { SiHexo } from "react-icons/si"
 import { AiOutlineDashboard } from "react-icons/ai";
-import {
-    FaBars,
-    FaWpforms
-}from "react-icons/fa";
+import { FaBars, FaWpforms }from "react-icons/fa";
 import { BiLogOutCircle } from "react-icons/bi";
 import { GiHistogram } from "react-icons/gi";
 import { RiFileHistoryLine } from "react-icons/ri";
 import { NavLink } from 'react-router-dom';
-import {useUser} from '../../hooks/useUser';
+import { useUser } from '../../hooks/useUser';
 import "./Sidebar.css";
+import hexlogo from '../assets/hexlogo.png';
+
+
 
 const Sidebar = ({children}) => {
     const {/*isLogged*/logout,isAdmin} = useUser()
@@ -46,7 +46,7 @@ const Sidebar = ({children}) => {
                 className="text-gray-100 sidebar bg-neutral-800">
              <div className="top_section mb-3">
                  <h1    style={{display: isOpen ? "block" : "none"}} 
-                        className="logo"> <SiHexo/> </h1>
+                        className="logo"> <img src={hexlogo} /> </h1>
                  <div   style={{marginLeft: isOpen ? "140px" : "-7px"}} 
                         className="bars text-white cursor-pointer rounded-full p-3">
                      <FaBars onClick={toggle}/>
