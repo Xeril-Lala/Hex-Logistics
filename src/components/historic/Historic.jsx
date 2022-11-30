@@ -19,7 +19,7 @@ const Historic = () => {
     }
 
     return (
-<div className="grid grid-cols-auto mx-0 py-5">
+<div className="grid grid-cols-auto mx-0 py-5 w-full">
 			{logs.map(log=>(
 				
         		<div className="grid w-screen overflow-hidden auto-cols-auto  gap-10 p-10 place-content-center">

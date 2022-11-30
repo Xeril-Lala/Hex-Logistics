@@ -12,7 +12,7 @@ import { RiFileHistoryLine } from "react-icons/ri";
 import { NavLink } from 'react-router-dom';
 import { useUser } from '../../hooks/useUser';
 import "./Sidebar.css";
-import hexlogo from '../assets/hexlogo.png';
+import hexlogo from '../assets/hexlog-removebg.png';
 
 
 
@@ -44,7 +44,7 @@ const Sidebar = ({children}) => {
         { isLogged &&
          <div   style={{width: isOpen ? "250px" : "70px"}}
                 className="text-gray-100 sidebar bg-neutral-800">
-             <div className="top_section mb-3">
+             <div className="top_section mb-3 ">
                  <h1    style={{display: isOpen ? "block" : "none"}} 
                         className="logo"> <img src={hexlogo} /> </h1>
                  <div   style={{marginLeft: isOpen ? "140px" : "-7px"}} 
