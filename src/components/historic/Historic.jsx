@@ -15,7 +15,7 @@ const Historic = () => {
     return (
         <div class="grid grid-cols-auto gap-10  mx-4 py-5">
         <div class="grid w-screen overflow-hidden auto-cols-auto auto-rows-auto gap-10 p-10">
-
+			
             <div class="grid 
 			overflow-hidden 
 			grid-cols-6 

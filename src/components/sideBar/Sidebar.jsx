@@ -39,15 +39,15 @@ const Sidebar = ({children}) => {
       }
   ]
   return (
-
-      <div className="container-side static h-full w-full">
+<div class="h-full w-full items-stretch">
+      <div className="container-side static h-full w-full items-stretch">
         { isLogged &&
-         <div   style={{width: isOpen ? "350px" : "75px"}}
+         <div   style={{width: isOpen ? "250px" : "70px"}}
                 className="text-gray-100 sidebar bg-neutral-800">
              <div className="top_section mb-3">
                  <h1    style={{display: isOpen ? "block" : "none"}} 
                         className="logo"> <SiHexo/> </h1>
-                 <div   style={{marginLeft: isOpen ? "230px" : "-5px"}} 
+                 <div   style={{marginLeft: isOpen ? "140px" : "-7px"}} 
                         className="bars text-white cursor-pointer rounded-full p-3">
                      <FaBars onClick={toggle}/>
                  </div>
@@ -83,7 +83,10 @@ const Sidebar = ({children}) => {
          </div>
 }
        <main>{children}</main>
-    </div>
+
+       </div>
+            
+        </div>
 );
 };
 
