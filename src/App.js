@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <UserContextProvider>
-    <div className="App bg-[#ebf1fd] dark:bg-zinc-900 dark:text-white">
+    <div className="App">
       <Sidebar>
         <Routes>
           <Route
