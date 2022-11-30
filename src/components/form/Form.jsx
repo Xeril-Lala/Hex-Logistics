@@ -347,7 +347,7 @@ const Form = () => {
           ]} />
           
         </div>
-        <div className="">
+        <div className="mt-24">
           <button className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10">
             Upload
           </button>
