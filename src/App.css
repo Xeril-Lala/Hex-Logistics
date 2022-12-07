@@ -1,9 +1,23 @@
 .App {
   text-align: center;
+  
 }
-
 .card {
-  @apply dark:bg-zinc-800  rounded-lg shadow-lg bg-white;
+  @apply 
+  dark:bg-zinc-800  
+  rounded-lg 
+  shadow-lg 
+  bg-white
+  h-auto;
+}
+.card_kpi {
+  @apply 
+  dark:bg-zinc-800  
+  rounded-lg 
+  shadow-lg 
+  bg-white
+  h-auto;
+  min-height: 340px;
 }
 
 .percentageChart{
@@ -20,52 +34,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgb(0, 0, 0);
-}
-/* py-2 al CARD */
-
-
-
-*{
-    margin:0;
-    padding:0;
-    text-decoration: none;
-}
-.container-side{
-    display:flex;
-}
-main{
-    width: 100%;
-    padding: 10px;
-}
-.sidebar{
-    transition: all .2s;
-    width:300px;
-}
-.top_section{
-    display: flex;
-    align-items:center;
-    padding:20px 15px;
-}
-.logo{
-    font-size: 35px;
-}
-.bars{
-    display: flex;
-    font-size: 25px;
-    margin-left: 50px;
-}
-.link{
-
-    padding: 10px 15px;
-    gap: 15px;
-
-}
-.link:hover{
-    background:lightskyblue;
-    transition: all 0.5s;
-}
-.active{
-}
-.icon, .link_text{
-    font-size: 20px;
 }
