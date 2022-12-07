@@ -58,7 +58,7 @@ const DailyProgress = ({loaded,unloaded}) => {
 
     return ( 
         <div className="grid grid-cols-2 gap-8 col-span-3">
-            <div className="card flex flex-col place-items-center ">
+            <div className="card flex flex-col place-items-center mt-4">
                 <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Loaded progress</div>
                 <div className="relative w-44 mt-6">
                     <Doughnut data={loadedChartData} options={options} />
@@ -68,7 +68,7 @@ const DailyProgress = ({loaded,unloaded}) => {
                     </div>
                 </div>
             </div>
-            <div className="card flex flex-col place-items-center ">
+            <div className="card flex flex-col place-items-center mt-4">
                 <div className=" text-2xl ml-2 mt-4 font-bold text-slate-600 float-left">Unloaded progress</div>
                 <div className="relative w-44 mt-6">
                     <Doughnut data={unloadedChartData} options={options} />

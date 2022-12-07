@@ -26,7 +26,7 @@ const Login = () => {
   if (isLoginLoading) return
 
   return  (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex w-screen items-center justify-center min-h-screen">
       <div className=" text-left bg-white shadow-lg mt-4 pb-24 pt-16">
         {loginError &&
               <div className="text-center w-10/12 mx-auto py-5 px-12 mb-8 -mt-4 border-red-200 border-2 text-sm text-red-700 bg-red-100 rounded dark:bg-red-200 dark:text-red-800" role="alert">

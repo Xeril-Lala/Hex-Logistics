@@ -42,8 +42,10 @@ const Form = () => {
       };
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-3 gap-10  mx-4 py-5 p-11  h-screen w-[120vw] ml-[20%] place-items-center ">
-      <div className="bg-white rounded-lg shadow-lg grid  grid-cols-2 gap-x-48 gap-y-0 p-10">
+    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-10  mx-4 py-5 p-11  h-screen w-[96vw] ml-[0%] place-items-center ">
+      <div className="bg-white rounded-lg shadow-lg h-[54vw] w-[83vw]">
+        <div className="grid grid-cols-2 gap-x-48 gap-y-0 p-10 px-[90px] mt-10">
+
         <div className="box col-span-2 text-left text-3xl">Material Details</div>
              
         <div className="box text-left text-xl">
@@ -152,7 +154,7 @@ const Form = () => {
             placeholder="#123456"/>
         </div>
 
-        <div className="box col-span-2 text-left text-3xl">Delivery Details</div>
+        <div className="box col-span-2 mt-12 text-left text-3xl">Delivery Details</div>
 
         <div className="box text-left text-xl">
           <label className="form-label inline-block mb-2 text-gray-700 text-left">
@@ -347,8 +349,10 @@ const Form = () => {
           ]} />
           
         </div>
-        <div className="mt-24">
-          <button className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10">
+
+        </div>
+        <div className="mt-0">
+          <button className="px-6 py-2 row-span-2 text-white bg-blue-600 rounded-lg hover:bg-blue-900 mb-10">
             Upload
           </button>
         </div>

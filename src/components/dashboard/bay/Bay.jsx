@@ -15,7 +15,7 @@ const Bay = ({bay}) => {
                             <label className="message-unavailable font-medium text-2xl">{text}</label>
                             <div className="content-img flex justify-center">
                                     {/*<i className="uil uil-check-circle block text-green-600 text-[150px]"></i>*/}
-                                    <IoCheckmarkDoneCircleOutline className="block text-green-500 text-[170px] mt-11" />
+                                    <IoCheckmarkDoneCircleOutline className="block text-green-500 text-[130px] mt-11" />
                             </div>
                         </div>
                     ) : status._id === 'UE' ? (

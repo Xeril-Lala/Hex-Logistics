@@ -17,6 +17,7 @@
   shadow-lg 
   bg-white
   h-auto;
+  min-height: 340px;
 }
 
 .percentageChart{

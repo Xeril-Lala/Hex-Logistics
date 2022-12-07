@@ -17,8 +17,7 @@ import hexlogo from '../assets/hexlog-removebg.png';
 
 
 const Sidebar = ({children}) => {
-    const {/*isLogged*/logout,isAdmin} = useUser()
-    const isLogged = 'True';
+    const {isLogged,logout,isAdmin} = useUser()
     const handleClick = e =>{
         e.preventDefault()
         logout()
@@ -39,7 +38,7 @@ const Sidebar = ({children}) => {
       }
   ]
   return (
-<div class="h-full w-full items-stretch">
+<div className="h-full w-full items-stretch">
       <div className="container-side static h-full w-full items-stretch">
         { isLogged &&
          <div   style={{width: isOpen ? "250px" : "70px"}}
